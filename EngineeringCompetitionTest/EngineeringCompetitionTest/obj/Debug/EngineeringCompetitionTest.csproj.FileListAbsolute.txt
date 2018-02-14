@@ -1,0 +1,10 @@
+C:\WORK\JRE_dev\EngineeringCompetitionTest\EngineeringCompetitionTest\obj\Debug\EngineeringCompetitionTest.Properties.Resources.resources
+C:\WORK\JRE_dev\EngineeringCompetitionTest\EngineeringCompetitionTest\obj\Debug\EngineeringCompetitionTest.csproj.GenerateResource.Cache
+C:\WORK\JRE_dev\EngineeringCompetitionTest\EngineeringCompetitionTest\bin\Debug\EngineeringCompetitionTest.exe.config
+C:\WORK\JRE_dev\EngineeringCompetitionTest\EngineeringCompetitionTest\bin\Debug\EngineeringCompetitionTest.exe
+C:\WORK\JRE_dev\EngineeringCompetitionTest\EngineeringCompetitionTest\bin\Debug\EngineeringCompetitionTest.pdb
+C:\WORK\JRE_dev\EngineeringCompetitionTest\EngineeringCompetitionTest\obj\Debug\EngineeringCompetitionTest.Form1.resources
+C:\WORK\JRE_dev\EngineeringCompetitionTest\EngineeringCompetitionTest\obj\Debug\EngineeringCompetitionTest.csproj.CoreCompileInputs.cache
+C:\WORK\JRE_dev\EngineeringCompetitionTest\EngineeringCompetitionTest\obj\Debug\EngineeringCompetitionTest.exe
+C:\WORK\JRE_dev\EngineeringCompetitionTest\EngineeringCompetitionTest\obj\Debug\EngineeringCompetitionTest.pdb
+C:\WORK\JRE_dev\EngineeringCompetitionTest\EngineeringCompetitionTest\obj\Debug\EngineeringCompetitionTest.csprojResolveAssemblyReference.cache
