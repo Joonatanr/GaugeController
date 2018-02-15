@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace EngineeringCompetitionTest.ScriptHandler
@@ -22,26 +23,36 @@ namespace EngineeringCompetitionTest.ScriptHandler
             this.SpeedValue = SpeedValue;
             this.RPMValue = RPMValue;
         }
+
+        public override string ToString()
+        {
+            return "T: " + TimeValue + " Speed : " + SpeedValue + " RPM: " + RPMValue;
+        }
     }
 
 
     public class ScriptReader
     {
+        public delegate void MeasurementListener(Measurement m);
+
         public List<Measurement> Measurements = new List<Measurement>();
+        public MeasurementListener Listener = null;
 
         private String filePath;
+        private Thread myThread;
 
         public ScriptReader(String filePath)
         {
             this.filePath = filePath;
         }
 
-        public void ReadMeasurementsFromFile()
+        public int ReadMeasurementsFromFile()
         {
             using (var reader = new StreamReader(filePath))
             {
                 Measurements = new List<Measurement>();
                 int lineNum = 0;
+                
                 while (!reader.EndOfStream)
                 {
                     string line = reader.ReadLine();
@@ -76,7 +87,49 @@ namespace EngineeringCompetitionTest.ScriptHandler
                         Measurement m = new Measurement(time, speed, rpm);
                         Measurements.Add(m);
                     }
+                }
+            }
 
+            return Measurements.Count;
+        }
+
+        public void PlayScript()
+        {
+            myThread = new Thread(new ThreadStart(MyThreadMethod));
+            myThread.Start();
+        }
+
+        public void StopScript()
+        {
+            if (myThread != null)
+            {
+                myThread.Abort();
+            }
+        }
+
+
+        private void MyThreadMethod()
+        {
+            int time = 0;
+
+            if (Measurements == null)
+            {
+                return;
+            }
+
+            if (Measurements.Count == 0)
+            {
+                return;
+            }
+
+            foreach (Measurement m in Measurements)
+            {
+                int delta = m.TimeValue - time;
+                time = m.TimeValue;
+                Thread.Sleep(delta);
+                if(Listener != null)
+                {
+                    Listener.Invoke(m);
                 }
             }
         }

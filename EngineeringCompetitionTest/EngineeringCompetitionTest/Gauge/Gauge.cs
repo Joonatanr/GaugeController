@@ -646,11 +646,10 @@ namespace GaugeControl
                 drawBackGround(ggr);
                 drawGaugeBackground = false;
             }
-
-            pe.Graphics.DrawImageUnscaled(gaugeBitmap, 0, 0);
+            
             pe.Graphics.SmoothingMode = SmoothingMode.AntiAlias;
             pe.Graphics.PixelOffsetMode = PixelOffsetMode.HighQuality;
-
+            pe.Graphics.DrawImageUnscaled(gaugeBitmap, 0, 0);
 
             //Draw custom needles
             foreach (KeyValuePair<string, GaugeNeedle> pair in customNeedleDictionary)

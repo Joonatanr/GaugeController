@@ -30,6 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.buttonCloseMSSIMPort = new System.Windows.Forms.Button();
             this.buttonOpenMSSIMPort = new System.Windows.Forms.Button();
             this.comboBoxMSSIM2Port = new System.Windows.Forms.ComboBox();
@@ -51,11 +52,11 @@
             this.gaugeFrequency = new GaugeControl.Gauge();
             this.gaugeRPM = new GaugeControl.Gauge();
             this.gaugeVoltage = new GaugeControl.Gauge();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.buttonRunScript = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownVoltage)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownFrequency)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -69,12 +70,23 @@
             this.groupBox1.Controls.Add(this.comboBoxPSPPortSelect);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Location = new System.Drawing.Point(12, 12);
+            this.groupBox1.Location = new System.Drawing.Point(12, 3);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(1089, 123);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "COM ports";
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(350, 12);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(371, 105);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 8;
+            this.pictureBox1.TabStop = false;
             // 
             // buttonCloseMSSIMPort
             // 
@@ -202,7 +214,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(186)));
-            this.label5.Location = new System.Drawing.Point(278, 590);
+            this.label5.Location = new System.Drawing.Point(290, 586);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(113, 32);
             this.label5.TabIndex = 9;
@@ -234,7 +246,7 @@
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(186)));
-            this.label7.Location = new System.Drawing.Point(654, 591);
+            this.label7.Location = new System.Drawing.Point(646, 585);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(149, 32);
             this.label7.TabIndex = 13;
@@ -405,7 +417,7 @@
             this.gaugeVoltage.BorderWidth = 8F;
             this.gaugeVoltage.isArcEnabled = true;
             this.gaugeVoltage.isCustomNeedleEnabled = false;
-            this.gaugeVoltage.Location = new System.Drawing.Point(225, 377);
+            this.gaugeVoltage.Location = new System.Drawing.Point(239, 377);
             this.gaugeVoltage.Name = "gaugeVoltage";
             this.gaugeVoltage.NeedleCenterColor = System.Drawing.Color.Chocolate;
             this.gaugeVoltage.NeedleCenterRadius = 14F;
@@ -438,22 +450,22 @@
             0,
             0});
             // 
-            // pictureBox1
+            // buttonRunScript
             // 
-            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(340, 12);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(371, 105);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 8;
-            this.pictureBox1.TabStop = false;
+            this.buttonRunScript.Location = new System.Drawing.Point(491, 189);
+            this.buttonRunScript.Name = "buttonRunScript";
+            this.buttonRunScript.Size = new System.Drawing.Size(120, 58);
+            this.buttonRunScript.TabIndex = 16;
+            this.buttonRunScript.Text = "Run Script";
+            this.buttonRunScript.UseVisualStyleBackColor = true;
+            this.buttonRunScript.Click += new System.EventHandler(this.buttonRunScript_Click);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1113, 731);
+            this.Controls.Add(this.buttonRunScript);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.gaugeSpeed);
             this.Controls.Add(this.label7);
@@ -470,11 +482,12 @@
             this.Controls.Add(this.groupBox1);
             this.Name = "Form1";
             this.Text = "Form1";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownVoltage)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownFrequency)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -505,6 +518,7 @@
         private GaugeControl.Gauge gaugeSpeed;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Button buttonRunScript;
     }
 }
 

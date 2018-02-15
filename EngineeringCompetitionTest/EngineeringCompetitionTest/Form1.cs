@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using EngineeringCompetitionTest.ScriptHandler;
 
 namespace EngineeringCompetitionTest
 {
@@ -15,6 +16,8 @@ namespace EngineeringCompetitionTest
     {
         private SerialPort portMSSIM;
         private SerialPort portPSP;
+
+        private ScriptReader myScriptReader;
 
         public Form1()
         {
@@ -175,7 +178,14 @@ namespace EngineeringCompetitionTest
 
         private void printLine(String line)
         {
-            richTextBox1.AppendText(line + Environment.NewLine);
+            if (richTextBox1.InvokeRequired)
+            {
+                this.Invoke(new Action<string>(printLine), new object[] { line });
+            }
+            else
+            {
+                richTextBox1.AppendText(line + Environment.NewLine);
+            }
         }
 
         private void numericUpDownFrequency_ValueChanged(object sender, EventArgs e)
@@ -213,6 +223,76 @@ namespace EngineeringCompetitionTest
             //Frequency 0 - 2000 Hz
             //Speed 0-200 km/H
             return freq / 10;
+        }
+
+        private void UpdateGaugesFromMeasurement(Measurement m)
+        {
+            if (this.InvokeRequired)
+            {
+                this.Invoke(new Action<Measurement>(UpdateGaugesFromMeasurement), new object[] { m } );
+            }
+            else
+            {
+                int frequency = m.SpeedValue * 10;
+                Decimal voltage = (Decimal)m.RPMValue / 600;
+                
+                gaugeFrequency.Value = frequency;
+                gaugeVoltage.Value = voltage;
+                gaugeRPM.Value = m.RPMValue;
+                gaugeSpeed.Value = m.SpeedValue;
+
+                sendVoltageCommand(voltage);
+                /* TODO : Uncomment this. */
+                //sendFrequencyCommand(frequency);
+            }
+        }
+
+
+        private void buttonRunScript_Click(object sender, EventArgs e)
+        {
+            printLine("Starting script.");
+            myScriptReader = new ScriptReader("Script1.csv");
+            int numberOfPoints = myScriptReader.ReadMeasurementsFromFile();
+
+            printLine("Read :" + numberOfPoints + " points");
+            myScriptReader.Listener = new ScriptReader.MeasurementListener(UpdateGaugesFromMeasurement);
+            myScriptReader.PlayScript();
+        }
+
+
+        private void sendFrequencyCommand(int frequency)
+        {
+            string command = "F:" + frequency;
+            try
+            {
+                portMSSIM.WriteLine(command);
+            }
+            catch (Exception ex)
+            {
+                printLine(ex.Message);
+            }
+        }
+
+        private void sendVoltageCommand(Decimal voltage)
+        {
+            string command = String.Format("SV {0}", voltage.ToString("00.00"));
+            command = command.Replace(',', '.');
+            try
+            {
+                portPSP.WriteLine(command);
+            }
+            catch (Exception ex)
+            {
+                printLine(ex.Message);
+            }
+        }
+
+        private void Form1_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (myScriptReader != null)
+            {
+                myScriptReader.StopScript();
+            }
         }
     }
 }
