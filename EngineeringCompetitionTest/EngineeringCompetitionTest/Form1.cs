@@ -251,9 +251,16 @@ namespace EngineeringCompetitionTest
         private void buttonRunScript_Click(object sender, EventArgs e)
         {
             printLine("Starting script.");
-            myScriptReader = new ScriptReader("Script1.csv");
-            int numberOfPoints = myScriptReader.ReadMeasurementsFromFile();
+            if (textBoxFileName.Text == null)
+            {
+                printLine("Error : No script file selected");
+                return;
+            }
 
+            //myScriptReader = new ScriptReader("Script1.csv");
+            myScriptReader = new ScriptReader(textBoxFileName.Text);
+
+            int numberOfPoints = myScriptReader.ReadMeasurementsFromFile();
             printLine("Read :" + numberOfPoints + " points");
             myScriptReader.Listener = new ScriptReader.MeasurementListener(UpdateGaugesFromMeasurement);
             myScriptReader.PlayScript();
@@ -292,6 +299,19 @@ namespace EngineeringCompetitionTest
             if (myScriptReader != null)
             {
                 myScriptReader.StopScript();
+            }
+        }
+
+        private void label6_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void buttonLoadScriptFile_Click(object sender, EventArgs e)
+        {
+            if (openFileDialog1.ShowDialog() == DialogResult.OK)
+            {
+                textBoxFileName.Text = openFileDialog1.FileName;
             }
         }
     }
