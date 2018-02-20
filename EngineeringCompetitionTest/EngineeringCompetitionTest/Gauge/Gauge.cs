@@ -37,21 +37,9 @@ namespace GaugeControl
         private float       m_arcEndAngle =                 400f;
         private float       m_arcRadius =                   80;
         private Color       m_arcColor =                    Color.White;
-
-        private float       m_NumberMarkerAngleBegin =     120f;
-        private float       m_NumberMarkerAngleInterval =   40f;
-        private float       m_NumberMarkerAngleEnd =       400f;
-
-        private Decimal     m_NumberMarkerValueBegin =      200;
-        private Decimal     m_NumberMarkerValueInterval =   100;
-        private Decimal     m_NumberMarkerValueEnd =       1000;
-
-        private int         m_NumberMarkerWidth =           40;
-        private int         m_NumberMarkerHeight =          12;
+        
+        /* Main number markers are bound to the arc radius with this variable. */
         private int         m_NumberMarkerOffset =         -18;
-        private Color       m_NumberMarkerColor =           Color.White;
-        private Font        m_NumberMarkerFont =            new Font ("Tahoma",8);
-
 
         private Boolean     m_isBackGroundEllipseEnabled =  true;
         private Color       m_backGroundEllipseColor =      Color.Black;
@@ -65,9 +53,11 @@ namespace GaugeControl
         private Bitmap      ResizedNeedleBitMap;
         private float       ResizeScale = 70; /* Really should review this. */
         private PointF      NeedleCenterPoint = new PointF(20f, 40f);
-
         private Boolean     isGridEnabled = false;
-        
+
+        public GaugeNeedle mainNeedle;
+        public GaugeNumberMarker mainNumberMarker;
+
         #region properties
 
         [Browsable(true),
@@ -127,15 +117,14 @@ namespace GaugeControl
         Description("Marker font")]
         public Font NumberMarkerFont
         {
-            get { return m_NumberMarkerFont; }
+            get { return mainNumberMarker.Font; }
             set
             {
                 if (value != null)
                 {
-                    m_NumberMarkerFont = value;
+                    mainNumberMarker.Font = value;
                     drawGaugeBackground = true;
-                    UpdateMarkers();
-                    Refresh();
+                    Invalidate();
                 }
             }
         }
@@ -146,13 +135,12 @@ namespace GaugeControl
         Description("Begin Angle")]
         public float NumberMarkerAngleBegin
         {
-            get { return m_NumberMarkerAngleBegin; }
+            get { return mainNumberMarker.BeginAngle; }
             set 
             { 
-                m_NumberMarkerAngleBegin = value;
+                mainNumberMarker.BeginAngle = value;
                 drawGaugeBackground = true;
-                UpdateMarkers();
-                Refresh();
+                Invalidate();
             }
         }
 
@@ -161,13 +149,12 @@ namespace GaugeControl
         Description("Number marker arc end angle")]
         public float NumberMarkerAngleEnd
         {
-            get { return m_NumberMarkerAngleEnd; }
+            get { return mainNumberMarker.EndAngle; }
             set
             {
-                m_NumberMarkerAngleEnd = value;
+                mainNumberMarker.EndAngle = value;
                 drawGaugeBackground = true;
-                UpdateMarkers();
-                Refresh();
+                Invalidate();
             }
         }
 
@@ -176,12 +163,12 @@ namespace GaugeControl
         Description("Angle Interval")]
         public float NumberMarkerAngleInterval
         {
-            get { return m_NumberMarkerAngleInterval; }
+            get { return mainNumberMarker.IntervalAngle; }
             set
             {
-                m_NumberMarkerAngleInterval = value;
+                mainNumberMarker.IntervalAngle = value;
                 drawGaugeBackground = true;
-                UpdateMarkers();
+                Invalidate();
                 Refresh();
             }
         }
@@ -191,13 +178,12 @@ namespace GaugeControl
         Description("First numerical value")]
         public Decimal NumberMarkerValueBegin
         {
-            get { return m_NumberMarkerValueBegin; }
+            get { return mainNumberMarker.ValueBegin; }
             set
             {
-                m_NumberMarkerValueBegin = value;
+                mainNumberMarker.ValueBegin = value;
                 drawGaugeBackground = true;
-                UpdateMarkers();
-                Refresh();
+                Invalidate();
             }
         }
 
@@ -206,43 +192,40 @@ namespace GaugeControl
         Description("Value interval ")]
         public Decimal NumberMarkerValueInterval
         {
-            get { return m_NumberMarkerValueInterval; }
+            get { return mainNumberMarker.ValueInterval; }
             set
             {
-                m_NumberMarkerValueInterval = value;
+                mainNumberMarker.ValueInterval = value;
                 drawGaugeBackground = true;
-                UpdateMarkers();
-                Refresh();
+                Invalidate();
             }
         }
 
         [Browsable(true),
         Category("NumberMarkers"),
         Description("Number marker width ")]
-        public int NumberMarkerWidth
+        public Decimal NumberMarkerWidth
         {
-            get { return m_NumberMarkerWidth; }
+            get { return (Decimal)mainNumberMarker.Width; }
             set
             {
-                m_NumberMarkerWidth = value;
+                mainNumberMarker.Width = (float)value;
                 drawGaugeBackground = true;
-                UpdateMarkers();
-                Refresh();
+                Invalidate();
             }
         }
 
         [Browsable(true),
         Category("NumberMarkers"),
         Description("Number marker height ")]
-        public int NumberMarkerHeight
+        public Decimal NumberMarkerHeight
         {
-            get { return m_NumberMarkerHeight; }
+            get { return (Decimal)mainNumberMarker.Height; }
             set
             {
-                m_NumberMarkerHeight = value;
+                mainNumberMarker.Height = (float)value;
                 drawGaugeBackground = true;
-                UpdateMarkers();
-                Refresh();
+                Invalidate();
             }
         }
 
@@ -256,8 +239,7 @@ namespace GaugeControl
             {
                 m_NumberMarkerOffset = value;
                 drawGaugeBackground = true;
-                UpdateMarkers();
-                Refresh();
+                Invalidate();
             }
         }
 
@@ -266,13 +248,12 @@ namespace GaugeControl
         Description("Number marker offset ")]
         public Color NumberMarkerColor
         {
-            get { return m_NumberMarkerColor; }
+            get { return mainNumberMarker.markerColor; }
             set
             {
-                m_NumberMarkerColor = value;
+                mainNumberMarker.markerColor = value;
                 drawGaugeBackground = true;
-                UpdateMarkers();
-                Refresh();
+                Invalidate();
             }
         }
 
@@ -485,30 +466,38 @@ namespace GaugeControl
         }
 
         [Browsable(true),
-        Category("Gauge"),
-        Description("Gauge needle image")]
+        Category("Logical Gauge Value"),
+        Description("Gauge logical value, corresponding angle is defined by number scale")]
         public Decimal Value
         {
             get { return m_value; }
             set
             {
-                Decimal begin = m_NumberMarkerValueBegin;
+                Decimal begin = mainNumberMarker.ValueBegin;
 
                 /* We don't check for value constraints because gauge might have areas where there are no numbers. */
                 /* TODO : Should still define purely logical max and min value.*/
 
                 m_value = value;
-                float angle_per_value = m_NumberMarkerAngleInterval / (float)m_NumberMarkerValueInterval;
+                float angle_per_value = mainNumberMarker.IntervalAngle / (float)mainNumberMarker.ValueInterval;
                 Decimal relative_value = m_value - begin;
 
-                SetAngle((angle_per_value * (float)relative_value) + m_NumberMarkerAngleBegin);
+                SetAngle((angle_per_value * (float)relative_value) + mainNumberMarker.BeginAngle);
             }
         }
 
-#endregion
 
-        public GaugeNeedle          mainNeedle;
-        public GaugeNumberMarker    mainNumberMarker;
+        [Browsable(true),
+        Category("Logical Gauge Value"),
+        Description("Gauge needle image")]
+        public Decimal MaxValue { get; set; } = 1000; /* TODO : Take this into account. */
+
+
+        [Browsable(true),
+        Category("Logical Gauge Value"),
+        Description("Gauge needle image")]
+        public Decimal MinValue { get; set; } = 0; /* TODO : Take this into account. */
+
 
 
         /****************************************************************/
@@ -554,8 +543,9 @@ namespace GaugeControl
             get { return m_CustomTextCollection; }
         }
 
-
         /*********************************************************************************/
+
+        #endregion
 
 
         public Gauge()
@@ -570,7 +560,8 @@ namespace GaugeControl
             m_Border.BorderRadius = m_backGroundEllipseRadius;
 
             UpdateNeedleBitmap();
-            UpdateMarkers();
+
+            mainNumberMarker = new GaugeNumberMarker(20);
 
             /* This is under test. */
             m_TickMarkerCollection = new CustomCollection<GaugeTickMarker>(new ItemAddedEventHandler(UpdateBackGround));
@@ -605,27 +596,6 @@ namespace GaugeControl
             }
         }
 
-        private void UpdateMarkers()
-        {
-            mainNumberMarker = new GaugeNumberMarker(this.ArcRadius);
-            
-            mainNumberMarker.BeginAngle =       m_NumberMarkerAngleBegin;
-            mainNumberMarker.IntervalAngle =    m_NumberMarkerAngleInterval;
-            mainNumberMarker.EndAngle =         m_NumberMarkerAngleEnd;
-
-            mainNumberMarker.ValueBegin =       m_NumberMarkerValueBegin;    
-            mainNumberMarker.ValueInterval =    m_NumberMarkerValueInterval;
-            mainNumberMarker.ValueEnd =         m_NumberMarkerValueEnd;
-
-            mainNumberMarker.Width =            m_NumberMarkerWidth;
-            mainNumberMarker.Height =           m_NumberMarkerHeight; 
-                   
-            mainNumberMarker.Radius =           m_arcRadius + m_NumberMarkerOffset;
-            mainNumberMarker.markerColor =      m_NumberMarkerColor;
-            mainNumberMarker.Font =             m_NumberMarkerFont;
-
-            Refresh();
-        }
 
         private void UpdateNeedleBitmap()
         {
@@ -667,7 +637,6 @@ namespace GaugeControl
             m_Border.BorderRadius = m_backGroundEllipseRadius;
 
             UpdateNeedleBitmap();
-            UpdateMarkers();
 
             GraphicsPath path = new GraphicsPath();
             path.AddEllipse(ClientRectangle);
