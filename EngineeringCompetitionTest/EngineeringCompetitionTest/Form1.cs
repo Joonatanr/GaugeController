@@ -12,14 +12,14 @@ using EngineeringCompetitionTest.ScriptHandler;
 
 namespace EngineeringCompetitionTest
 {
-    public partial class Form1 : Form
+    public partial class GaugeSimulator : Form
     {
         private SerialPort portMSSIM;
         private SerialPort portPSP;
 
         private ScriptReader myScriptReader;
 
-        public Form1()
+        public GaugeSimulator()
         {
             InitializeComponent();
             populateCOMPorts();

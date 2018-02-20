@@ -1,6 +1,6 @@
 ﻿namespace EngineeringCompetitionTest
 {
-    partial class Form1
+    partial class GaugeSimulator
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(GaugeSimulator));
             GaugeControl.GaugeLabel gaugeLabel9 = new GaugeControl.GaugeLabel();
             GaugeControl.GaugeTickMarker gaugeTickMarker7 = new GaugeControl.GaugeTickMarker();
             GaugeControl.GaugeTickMarker gaugeTickMarker8 = new GaugeControl.GaugeTickMarker();
@@ -91,7 +91,7 @@
             this.groupBox4.Controls.Add(this.buttonClosePSPPort);
             this.groupBox4.Location = new System.Drawing.Point(6, 17);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(315, 92);
+            this.groupBox4.Size = new System.Drawing.Size(302, 92);
             this.groupBox4.TabIndex = 16;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "PSP port";
@@ -129,9 +129,9 @@
             this.groupBox3.Controls.Add(this.buttonCloseMSSIMPort);
             this.groupBox3.Controls.Add(this.comboBoxMSSIM2Port);
             this.groupBox3.Controls.Add(this.buttonOpenMSSIMPort);
-            this.groupBox3.Location = new System.Drawing.Point(774, 17);
+            this.groupBox3.Location = new System.Drawing.Point(761, 17);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(287, 92);
+            this.groupBox3.Size = new System.Drawing.Size(300, 92);
             this.groupBox3.TabIndex = 16;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "MSSIM2 port";
@@ -169,7 +169,7 @@
             this.groupBox2.Controls.Add(this.textBoxFileName);
             this.groupBox2.Controls.Add(this.buttonRunScript);
             this.groupBox2.Controls.Add(this.buttonLoadScriptFile);
-            this.groupBox2.Location = new System.Drawing.Point(327, 17);
+            this.groupBox2.Location = new System.Drawing.Point(314, 17);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(441, 92);
             this.groupBox2.TabIndex = 19;
@@ -221,7 +221,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.richTextBox1.Location = new System.Drawing.Point(5, 581);
             this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.Size = new System.Drawing.Size(1075, 108);
+            this.richTextBox1.Size = new System.Drawing.Size(1075, 136);
             this.richTextBox1.TabIndex = 4;
             this.richTextBox1.Text = "";
             // 
@@ -615,17 +615,17 @@
             this.groupBox5.TabStop = false;
             this.groupBox5.Text = "Gauges";
             // 
-            // Form1
+            // GaugeSimulator
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1086, 692);
+            this.ClientSize = new System.Drawing.Size(1086, 720);
             this.Controls.Add(this.groupBox5);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.richTextBox1);
             this.Controls.Add(this.groupBox1);
-            this.Name = "Form1";
-            this.Text = "Form1";
+            this.Name = "GaugeSimulator";
+            this.Text = "GaugeSimulator";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
             this.groupBox1.ResumeLayout(false);
             this.groupBox4.ResumeLayout(false);
