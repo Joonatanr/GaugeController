@@ -13,20 +13,20 @@ namespace EngineeringCompetitionTest.ScriptHandler
     /// </summary>
     public class Measurement
     {
-        public int TimeValue;
+        public int DeltaTimeValue;
         public int SpeedValue;
         public int RPMValue;
 
         public Measurement(int TimeValue, int SpeedValue, int RPMValue)
         {
-            this.TimeValue = TimeValue;
+            this.DeltaTimeValue = TimeValue;
             this.SpeedValue = SpeedValue;
             this.RPMValue = RPMValue;
         }
 
         public override string ToString()
         {
-            return "T: " + TimeValue + " Speed : " + SpeedValue + " RPM: " + RPMValue;
+            return "T: " + DeltaTimeValue + " Speed : " + SpeedValue + " RPM: " + RPMValue;
         }
     }
 
@@ -110,8 +110,6 @@ namespace EngineeringCompetitionTest.ScriptHandler
 
         private void MyThreadMethod()
         {
-            int time = 0;
-
             if (Measurements == null)
             {
                 return;
@@ -124,10 +122,8 @@ namespace EngineeringCompetitionTest.ScriptHandler
 
             foreach (Measurement m in Measurements)
             {
-                int delta = m.TimeValue - time;
-                time = m.TimeValue;
-                Thread.Sleep(delta);
-                if(Listener != null)
+                Thread.Sleep(m.DeltaTimeValue);
+                if (Listener != null)
                 {
                     Listener.Invoke(m);
                 }
