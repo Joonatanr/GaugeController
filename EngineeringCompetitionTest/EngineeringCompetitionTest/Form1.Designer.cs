@@ -29,14 +29,21 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
+            GaugeControl.GaugeTickMarker gaugeTickMarker1 = new GaugeControl.GaugeTickMarker();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.buttonCloseMSSIMPort = new System.Windows.Forms.Button();
-            this.buttonOpenMSSIMPort = new System.Windows.Forms.Button();
-            this.comboBoxMSSIM2Port = new System.Windows.Forms.ComboBox();
-            this.buttonClosePSPPort = new System.Windows.Forms.Button();
-            this.buttonOpenPSPPort = new System.Windows.Forms.Button();
+            this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.comboBoxPSPPortSelect = new System.Windows.Forms.ComboBox();
+            this.buttonOpenPSPPort = new System.Windows.Forms.Button();
+            this.buttonClosePSPPort = new System.Windows.Forms.Button();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.buttonCloseMSSIMPort = new System.Windows.Forms.Button();
+            this.comboBoxMSSIM2Port = new System.Windows.Forms.ComboBox();
+            this.buttonOpenMSSIMPort = new System.Windows.Forms.Button();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.textBoxFileName = new System.Windows.Forms.TextBox();
+            this.buttonRunScript = new System.Windows.Forms.Button();
+            this.buttonLoadScriptFile = new System.Windows.Forms.Button();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label3 = new System.Windows.Forms.Label();
             this.richTextBox1 = new System.Windows.Forms.RichTextBox();
             this.numericUpDownVoltage = new System.Windows.Forms.NumericUpDown();
@@ -46,24 +53,18 @@
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
-            this.buttonRunScript = new System.Windows.Forms.Button();
             this.gaugeSpeed = new GaugeControl.Gauge();
             this.gaugeFrequency = new GaugeControl.Gauge();
             this.gaugeRPM = new GaugeControl.Gauge();
             this.gaugeVoltage = new GaugeControl.Gauge();
-            this.textBoxFileName = new System.Windows.Forms.TextBox();
-            this.buttonLoadScriptFile = new System.Windows.Forms.Button();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.groupBox1.SuspendLayout();
+            this.groupBox4.SuspendLayout();
+            this.groupBox3.SuspendLayout();
+            this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownVoltage)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownFrequency)).BeginInit();
-            this.groupBox2.SuspendLayout();
-            this.groupBox3.SuspendLayout();
-            this.groupBox4.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -78,54 +79,25 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "COM ports";
             // 
-            // pictureBox1
+            // groupBox4
             // 
-            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(340, 132);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(415, 127);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 8;
-            this.pictureBox1.TabStop = false;
+            this.groupBox4.Controls.Add(this.comboBoxPSPPortSelect);
+            this.groupBox4.Controls.Add(this.buttonOpenPSPPort);
+            this.groupBox4.Controls.Add(this.buttonClosePSPPort);
+            this.groupBox4.Location = new System.Drawing.Point(6, 17);
+            this.groupBox4.Name = "groupBox4";
+            this.groupBox4.Size = new System.Drawing.Size(315, 92);
+            this.groupBox4.TabIndex = 16;
+            this.groupBox4.TabStop = false;
+            this.groupBox4.Text = "PSP port";
             // 
-            // buttonCloseMSSIMPort
+            // comboBoxPSPPortSelect
             // 
-            this.buttonCloseMSSIMPort.Location = new System.Drawing.Point(39, 50);
-            this.buttonCloseMSSIMPort.Name = "buttonCloseMSSIMPort";
-            this.buttonCloseMSSIMPort.Size = new System.Drawing.Size(79, 30);
-            this.buttonCloseMSSIMPort.TabIndex = 7;
-            this.buttonCloseMSSIMPort.Text = "Close";
-            this.buttonCloseMSSIMPort.UseVisualStyleBackColor = true;
-            this.buttonCloseMSSIMPort.Click += new System.EventHandler(this.buttonCloseMSSIMPort_Click);
-            // 
-            // buttonOpenMSSIMPort
-            // 
-            this.buttonOpenMSSIMPort.Location = new System.Drawing.Point(39, 19);
-            this.buttonOpenMSSIMPort.Name = "buttonOpenMSSIMPort";
-            this.buttonOpenMSSIMPort.Size = new System.Drawing.Size(79, 30);
-            this.buttonOpenMSSIMPort.TabIndex = 6;
-            this.buttonOpenMSSIMPort.Text = "Open";
-            this.buttonOpenMSSIMPort.UseVisualStyleBackColor = true;
-            this.buttonOpenMSSIMPort.Click += new System.EventHandler(this.buttonOpenMSSIMPort_Click);
-            // 
-            // comboBoxMSSIM2Port
-            // 
-            this.comboBoxMSSIM2Port.FormattingEnabled = true;
-            this.comboBoxMSSIM2Port.Location = new System.Drawing.Point(124, 23);
-            this.comboBoxMSSIM2Port.Name = "comboBoxMSSIM2Port";
-            this.comboBoxMSSIM2Port.Size = new System.Drawing.Size(121, 24);
-            this.comboBoxMSSIM2Port.TabIndex = 5;
-            // 
-            // buttonClosePSPPort
-            // 
-            this.buttonClosePSPPort.Location = new System.Drawing.Point(89, 53);
-            this.buttonClosePSPPort.Name = "buttonClosePSPPort";
-            this.buttonClosePSPPort.Size = new System.Drawing.Size(79, 30);
-            this.buttonClosePSPPort.TabIndex = 4;
-            this.buttonClosePSPPort.Text = "Close";
-            this.buttonClosePSPPort.UseVisualStyleBackColor = true;
-            this.buttonClosePSPPort.Click += new System.EventHandler(this.buttonClosePSPPort_Click);
+            this.comboBoxPSPPortSelect.FormattingEnabled = true;
+            this.comboBoxPSPPortSelect.Location = new System.Drawing.Point(174, 21);
+            this.comboBoxPSPPortSelect.Name = "comboBoxPSPPortSelect";
+            this.comboBoxPSPPortSelect.Size = new System.Drawing.Size(121, 24);
+            this.comboBoxPSPPortSelect.TabIndex = 2;
             // 
             // buttonOpenPSPPort
             // 
@@ -137,13 +109,105 @@
             this.buttonOpenPSPPort.UseVisualStyleBackColor = true;
             this.buttonOpenPSPPort.Click += new System.EventHandler(this.buttonOpenPSPPort_Click);
             // 
-            // comboBoxPSPPortSelect
+            // buttonClosePSPPort
             // 
-            this.comboBoxPSPPortSelect.FormattingEnabled = true;
-            this.comboBoxPSPPortSelect.Location = new System.Drawing.Point(174, 21);
-            this.comboBoxPSPPortSelect.Name = "comboBoxPSPPortSelect";
-            this.comboBoxPSPPortSelect.Size = new System.Drawing.Size(121, 24);
-            this.comboBoxPSPPortSelect.TabIndex = 2;
+            this.buttonClosePSPPort.Location = new System.Drawing.Point(89, 53);
+            this.buttonClosePSPPort.Name = "buttonClosePSPPort";
+            this.buttonClosePSPPort.Size = new System.Drawing.Size(79, 30);
+            this.buttonClosePSPPort.TabIndex = 4;
+            this.buttonClosePSPPort.Text = "Close";
+            this.buttonClosePSPPort.UseVisualStyleBackColor = true;
+            this.buttonClosePSPPort.Click += new System.EventHandler(this.buttonClosePSPPort_Click);
+            // 
+            // groupBox3
+            // 
+            this.groupBox3.Controls.Add(this.buttonCloseMSSIMPort);
+            this.groupBox3.Controls.Add(this.comboBoxMSSIM2Port);
+            this.groupBox3.Controls.Add(this.buttonOpenMSSIMPort);
+            this.groupBox3.Location = new System.Drawing.Point(795, 21);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(266, 88);
+            this.groupBox3.TabIndex = 16;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "MSSIM2 port";
+            // 
+            // buttonCloseMSSIMPort
+            // 
+            this.buttonCloseMSSIMPort.Location = new System.Drawing.Point(39, 50);
+            this.buttonCloseMSSIMPort.Name = "buttonCloseMSSIMPort";
+            this.buttonCloseMSSIMPort.Size = new System.Drawing.Size(79, 30);
+            this.buttonCloseMSSIMPort.TabIndex = 7;
+            this.buttonCloseMSSIMPort.Text = "Close";
+            this.buttonCloseMSSIMPort.UseVisualStyleBackColor = true;
+            this.buttonCloseMSSIMPort.Click += new System.EventHandler(this.buttonCloseMSSIMPort_Click);
+            // 
+            // comboBoxMSSIM2Port
+            // 
+            this.comboBoxMSSIM2Port.FormattingEnabled = true;
+            this.comboBoxMSSIM2Port.Location = new System.Drawing.Point(124, 23);
+            this.comboBoxMSSIM2Port.Name = "comboBoxMSSIM2Port";
+            this.comboBoxMSSIM2Port.Size = new System.Drawing.Size(121, 24);
+            this.comboBoxMSSIM2Port.TabIndex = 5;
+            // 
+            // buttonOpenMSSIMPort
+            // 
+            this.buttonOpenMSSIMPort.Location = new System.Drawing.Point(39, 19);
+            this.buttonOpenMSSIMPort.Name = "buttonOpenMSSIMPort";
+            this.buttonOpenMSSIMPort.Size = new System.Drawing.Size(79, 30);
+            this.buttonOpenMSSIMPort.TabIndex = 6;
+            this.buttonOpenMSSIMPort.Text = "Open";
+            this.buttonOpenMSSIMPort.UseVisualStyleBackColor = true;
+            this.buttonOpenMSSIMPort.Click += new System.EventHandler(this.buttonOpenMSSIMPort_Click);
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.textBoxFileName);
+            this.groupBox2.Controls.Add(this.buttonRunScript);
+            this.groupBox2.Controls.Add(this.buttonLoadScriptFile);
+            this.groupBox2.Location = new System.Drawing.Point(328, 17);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(440, 92);
+            this.groupBox2.TabIndex = 19;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Script";
+            // 
+            // textBoxFileName
+            // 
+            this.textBoxFileName.Location = new System.Drawing.Point(64, 16);
+            this.textBoxFileName.Name = "textBoxFileName";
+            this.textBoxFileName.Size = new System.Drawing.Size(242, 22);
+            this.textBoxFileName.TabIndex = 17;
+            // 
+            // buttonRunScript
+            // 
+            this.buttonRunScript.Location = new System.Drawing.Point(312, 49);
+            this.buttonRunScript.Name = "buttonRunScript";
+            this.buttonRunScript.Size = new System.Drawing.Size(120, 33);
+            this.buttonRunScript.TabIndex = 16;
+            this.buttonRunScript.Text = "Run Script";
+            this.buttonRunScript.UseVisualStyleBackColor = true;
+            this.buttonRunScript.Click += new System.EventHandler(this.buttonRunScript_Click);
+            // 
+            // buttonLoadScriptFile
+            // 
+            this.buttonLoadScriptFile.Location = new System.Drawing.Point(312, 12);
+            this.buttonLoadScriptFile.Name = "buttonLoadScriptFile";
+            this.buttonLoadScriptFile.Size = new System.Drawing.Size(120, 31);
+            this.buttonLoadScriptFile.TabIndex = 18;
+            this.buttonLoadScriptFile.Text = "Load Script";
+            this.buttonLoadScriptFile.UseVisualStyleBackColor = true;
+            this.buttonLoadScriptFile.Click += new System.EventHandler(this.buttonLoadScriptFile_Click);
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(340, 132);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(415, 127);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 8;
+            this.pictureBox1.TabStop = false;
             // 
             // label3
             // 
@@ -246,16 +310,6 @@
             this.label8.TabIndex = 15;
             this.label8.Text = "Speed";
             // 
-            // buttonRunScript
-            // 
-            this.buttonRunScript.Location = new System.Drawing.Point(312, 49);
-            this.buttonRunScript.Name = "buttonRunScript";
-            this.buttonRunScript.Size = new System.Drawing.Size(120, 33);
-            this.buttonRunScript.TabIndex = 16;
-            this.buttonRunScript.Text = "Run Script";
-            this.buttonRunScript.UseVisualStyleBackColor = true;
-            this.buttonRunScript.Click += new System.EventHandler(this.buttonRunScript_Click);
-            // 
             // gaugeSpeed
             // 
             this.gaugeSpeed.ArcColor = System.Drawing.Color.White;
@@ -307,7 +361,7 @@
             // 
             this.gaugeFrequency.ArcColor = System.Drawing.Color.White;
             this.gaugeFrequency.ArcEndAngle = 420F;
-            this.gaugeFrequency.ArcRadius = 80F;
+            this.gaugeFrequency.ArcRadius = 85F;
             this.gaugeFrequency.ArcStartAngle = 120F;
             this.gaugeFrequency.ArcWidth = 3F;
             this.gaugeFrequency.BackColor = System.Drawing.Color.Transparent;
@@ -330,7 +384,7 @@
             this.gaugeFrequency.NumberMarkerColor = System.Drawing.Color.LemonChiffon;
             this.gaugeFrequency.NumberMarkerFont = new System.Drawing.Font("Tahoma", 8F);
             this.gaugeFrequency.NumberMarkerHeight = 12;
-            this.gaugeFrequency.NumberMarkerOffset = -18;
+            this.gaugeFrequency.NumberMarkerOffset = -14;
             this.gaugeFrequency.NumberMarkerValueBegin = new decimal(new int[] {
             0,
             0,
@@ -344,6 +398,16 @@
             this.gaugeFrequency.NumberMarkerWidth = 40;
             this.gaugeFrequency.Size = new System.Drawing.Size(208, 206);
             this.gaugeFrequency.TabIndex = 10;
+            gaugeTickMarker1.BeginAngle = 120F;
+            gaugeTickMarker1.EndAngle = 420F;
+            gaugeTickMarker1.Height = 7F;
+            gaugeTickMarker1.IntervalAngle = 15F;
+            gaugeTickMarker1.markerColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            gaugeTickMarker1.Name = "GaugeElement";
+            gaugeTickMarker1.Offset = ((System.Drawing.PointF)(resources.GetObject("gaugeTickMarker1.Offset")));
+            gaugeTickMarker1.Radius = 60F;
+            gaugeTickMarker1.Width = 2F;
+            this.gaugeFrequency.TickMarkers.Add(gaugeTickMarker1);
             this.gaugeFrequency.Value = new decimal(new int[] {
             0,
             0,
@@ -444,59 +508,6 @@
             0,
             0});
             // 
-            // textBoxFileName
-            // 
-            this.textBoxFileName.Location = new System.Drawing.Point(64, 16);
-            this.textBoxFileName.Name = "textBoxFileName";
-            this.textBoxFileName.Size = new System.Drawing.Size(242, 22);
-            this.textBoxFileName.TabIndex = 17;
-            // 
-            // buttonLoadScriptFile
-            // 
-            this.buttonLoadScriptFile.Location = new System.Drawing.Point(312, 12);
-            this.buttonLoadScriptFile.Name = "buttonLoadScriptFile";
-            this.buttonLoadScriptFile.Size = new System.Drawing.Size(120, 31);
-            this.buttonLoadScriptFile.TabIndex = 18;
-            this.buttonLoadScriptFile.Text = "Load Script";
-            this.buttonLoadScriptFile.UseVisualStyleBackColor = true;
-            this.buttonLoadScriptFile.Click += new System.EventHandler(this.buttonLoadScriptFile_Click);
-            // 
-            // groupBox2
-            // 
-            this.groupBox2.Controls.Add(this.textBoxFileName);
-            this.groupBox2.Controls.Add(this.buttonRunScript);
-            this.groupBox2.Controls.Add(this.buttonLoadScriptFile);
-            this.groupBox2.Location = new System.Drawing.Point(328, 17);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(440, 92);
-            this.groupBox2.TabIndex = 19;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Script";
-            // 
-            // groupBox3
-            // 
-            this.groupBox3.Controls.Add(this.buttonCloseMSSIMPort);
-            this.groupBox3.Controls.Add(this.comboBoxMSSIM2Port);
-            this.groupBox3.Controls.Add(this.buttonOpenMSSIMPort);
-            this.groupBox3.Location = new System.Drawing.Point(795, 21);
-            this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(266, 88);
-            this.groupBox3.TabIndex = 16;
-            this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "MSSIM2 port";
-            // 
-            // groupBox4
-            // 
-            this.groupBox4.Controls.Add(this.comboBoxPSPPortSelect);
-            this.groupBox4.Controls.Add(this.buttonOpenPSPPort);
-            this.groupBox4.Controls.Add(this.buttonClosePSPPort);
-            this.groupBox4.Location = new System.Drawing.Point(6, 17);
-            this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(315, 92);
-            this.groupBox4.TabIndex = 16;
-            this.groupBox4.TabStop = false;
-            this.groupBox4.Text = "PSP port";
-            // 
             // openFileDialog1
             // 
             this.openFileDialog1.FileName = "openFileDialog1";
@@ -525,13 +536,13 @@
             this.Text = "Form1";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
             this.groupBox1.ResumeLayout(false);
+            this.groupBox4.ResumeLayout(false);
+            this.groupBox3.ResumeLayout(false);
+            this.groupBox2.ResumeLayout(false);
+            this.groupBox2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownVoltage)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownFrequency)).EndInit();
-            this.groupBox2.ResumeLayout(false);
-            this.groupBox2.PerformLayout();
-            this.groupBox3.ResumeLayout(false);
-            this.groupBox4.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 

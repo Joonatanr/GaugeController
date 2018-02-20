@@ -511,6 +511,40 @@ namespace GaugeControl
         public GaugeNeedle          mainNeedle;
         public GaugeNumberMarker    mainNumberMarker;
 
+
+        /****************************************************************/
+        /* This part is still experimental.                             */
+        /****************************************************************/
+
+        public delegate void ItemAddedEventHandler();
+
+        public class CustomCollection<T> : Collection<T>
+        {
+            public ItemAddedEventHandler myHandler;
+
+            public CustomCollection(ItemAddedEventHandler handler)
+            {
+                myHandler = handler;
+            }
+
+            protected override void InsertItem(int index, T item)
+            {
+                base.InsertItem(index, item);
+                myHandler();
+            }
+        }
+
+        private CustomCollection<GaugeTickMarker> m_TickMarkerCollection;
+
+        [Category("Test")]
+        [Description("The collection fo the tick markers on the gauge. ")]
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
+        public CustomCollection<GaugeTickMarker> TickMarkers
+        {
+            get { return m_TickMarkerCollection; }
+        }
+
+
         public Gauge()
         {
             SetStyle(ControlStyles.ResizeRedraw, true);
@@ -524,6 +558,9 @@ namespace GaugeControl
 
             UpdateNeedleBitmap();
             UpdateMarkers();
+
+            /* This is under test. */
+            m_TickMarkerCollection = new CustomCollection<GaugeTickMarker>(new ItemAddedEventHandler(UpdateBackGround));
         }
 
         public void AddMarker(GaugeMarker m)
@@ -708,7 +745,13 @@ namespace GaugeControl
             {
                 m.Draw(gfx, this.CenterPoint);
             }
-
+            
+            //Draw tick marker collection. 
+            foreach (GaugeTickMarker m in m_TickMarkerCollection)
+            {
+                m.Draw(gfx, this.CenterPoint);
+            }
+            
             //Draw default number marker.
             mainNumberMarker.Draw(gfx, this.CenterPoint);
 
@@ -739,6 +782,12 @@ namespace GaugeControl
         public float GetAngle()
         {
             return this.m_angle;
+        }
+
+        private void UpdateBackGround()
+        {
+            drawGaugeBackground = true;
+            this.Invalidate();
         }
     }
 }
