@@ -9,12 +9,30 @@ namespace GaugeControl
 {
     public abstract class GaugeElement
     {
+        public Decimal OffsetX
+        {
+            get { return (Decimal)Offset.X; }
+            set
+            {
+                Offset.X = (float)value;
+            }
+        }
 
-        public PointF Offset { get; set; } = new PointF(0, 0);
+        public Decimal OffsetY
+        {
+            get { return (Decimal)Offset.Y; }
+            set
+            {
+                Offset.Y = (float)value;
+            }
+        }
+
         public String Name { get; set; } = "GaugeElement";
 
         protected PointF    m_centerPoint = new PointF(0,0);
-        
+
+        public PointF Offset = new PointF(0, 0);
+
         public void Draw(Graphics g, PointF centerPoint)
         {
             m_centerPoint = centerPoint;

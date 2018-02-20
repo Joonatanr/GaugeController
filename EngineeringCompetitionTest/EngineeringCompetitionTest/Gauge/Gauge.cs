@@ -24,7 +24,6 @@ namespace GaugeControl
         private Bitmap gaugeBitmap;
 
         private List<GaugeMarker> m_markerList = new List<GaugeMarker>();
-        private List<GaugeLabel> customTextList = new List<GaugeLabel>();
         private Dictionary<string, GaugeNeedle> customNeedleDictionary = new Dictionary<string, GaugeNeedle>();
 
         private Size        m_needleSize =                  new Size(4,66);
@@ -544,6 +543,19 @@ namespace GaugeControl
             get { return m_TickMarkerCollection; }
         }
 
+        private CustomCollection<GaugeLabel> m_CustomTextCollection;
+
+        [Category("Test")]
+        [Description("The collection for labels on the gauge. ")]
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
+        public CustomCollection<GaugeLabel> Labels
+        {
+            get { return m_CustomTextCollection; }
+        }
+
+
+        /*********************************************************************************/
+
 
         public Gauge()
         {
@@ -561,6 +573,7 @@ namespace GaugeControl
 
             /* This is under test. */
             m_TickMarkerCollection = new CustomCollection<GaugeTickMarker>(new ItemAddedEventHandler(UpdateBackGround));
+            m_CustomTextCollection = new CustomCollection<GaugeLabel>(new ItemAddedEventHandler(UpdateBackGround));
         }
 
         public void AddMarker(GaugeMarker m)
@@ -572,7 +585,7 @@ namespace GaugeControl
 
         public void AddGaugeLabel(GaugeLabel t)
         {
-            this.customTextList.Add(t);
+            this.m_CustomTextCollection.Add(t);
             drawGaugeBackground = true;
             this.Refresh();
         }
@@ -767,7 +780,7 @@ namespace GaugeControl
 
             
             //Draw custom text fields.
-            foreach(GaugeLabel label in customTextList)
+            foreach(GaugeLabel label in m_CustomTextCollection)
             {
                 label.Draw(gfx, this.CenterPoint);
             }

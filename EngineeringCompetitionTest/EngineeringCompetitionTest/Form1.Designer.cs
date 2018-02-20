@@ -29,7 +29,9 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
+            GaugeControl.GaugeLabel gaugeLabel1 = new GaugeControl.GaugeLabel();
             GaugeControl.GaugeTickMarker gaugeTickMarker1 = new GaugeControl.GaugeTickMarker();
+            GaugeControl.GaugeLabel gaugeLabel2 = new GaugeControl.GaugeLabel();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.comboBoxPSPPortSelect = new System.Windows.Forms.ComboBox();
@@ -53,11 +55,11 @@
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
+            this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.gaugeSpeed = new GaugeControl.Gauge();
             this.gaugeFrequency = new GaugeControl.Gauge();
             this.gaugeRPM = new GaugeControl.Gauge();
             this.gaugeVoltage = new GaugeControl.Gauge();
-            this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.groupBox1.SuspendLayout();
             this.groupBox4.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -310,6 +312,10 @@
             this.label8.TabIndex = 15;
             this.label8.Text = "Speed";
             // 
+            // openFileDialog1
+            // 
+            this.openFileDialog1.FileName = "openFileDialog1";
+            // 
             // gaugeSpeed
             // 
             this.gaugeSpeed.ArcColor = System.Drawing.Color.White;
@@ -324,6 +330,21 @@
             this.gaugeSpeed.BorderWidth = 7F;
             this.gaugeSpeed.isArcEnabled = true;
             this.gaugeSpeed.isCustomNeedleEnabled = false;
+            gaugeLabel1.Name = "GaugeElement";
+            gaugeLabel1.OffsetX = new decimal(new int[] {
+            0,
+            0,
+            0,
+            0});
+            gaugeLabel1.OffsetY = new decimal(new int[] {
+            20,
+            0,
+            0,
+            0});
+            gaugeLabel1.Text = "km/h";
+            gaugeLabel1.TextColor = System.Drawing.Color.White;
+            gaugeLabel1.TextFont = new System.Drawing.Font("Arial", 12F);
+            this.gaugeSpeed.Labels.Add(gaugeLabel1);
             this.gaugeSpeed.Location = new System.Drawing.Point(754, 141);
             this.gaugeSpeed.Name = "gaugeSpeed";
             this.gaugeSpeed.NeedleCenterColor = System.Drawing.Color.Gray;
@@ -402,10 +423,19 @@
             gaugeTickMarker1.EndAngle = 420F;
             gaugeTickMarker1.Height = 7F;
             gaugeTickMarker1.IntervalAngle = 15F;
-            gaugeTickMarker1.markerColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            gaugeTickMarker1.markerColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
             gaugeTickMarker1.Name = "GaugeElement";
-            gaugeTickMarker1.Offset = ((System.Drawing.PointF)(resources.GetObject("gaugeTickMarker1.Offset")));
-            gaugeTickMarker1.Radius = 60F;
+            gaugeTickMarker1.OffsetX = new decimal(new int[] {
+            0,
+            0,
+            0,
+            0});
+            gaugeTickMarker1.OffsetY = new decimal(new int[] {
+            0,
+            0,
+            0,
+            0});
+            gaugeTickMarker1.Radius = 59F;
             gaugeTickMarker1.Width = 2F;
             this.gaugeFrequency.TickMarkers.Add(gaugeTickMarker1);
             this.gaugeFrequency.Value = new decimal(new int[] {
@@ -428,6 +458,21 @@
             this.gaugeRPM.BorderWidth = 7F;
             this.gaugeRPM.isArcEnabled = true;
             this.gaugeRPM.isCustomNeedleEnabled = false;
+            gaugeLabel2.Name = "GaugeElement";
+            gaugeLabel2.OffsetX = new decimal(new int[] {
+            0,
+            0,
+            0,
+            0});
+            gaugeLabel2.OffsetY = new decimal(new int[] {
+            20,
+            0,
+            0,
+            0});
+            gaugeLabel2.Text = "RPM";
+            gaugeLabel2.TextColor = System.Drawing.Color.White;
+            gaugeLabel2.TextFont = new System.Drawing.Font("Arial", 12F);
+            this.gaugeRPM.Labels.Add(gaugeLabel2);
             this.gaugeRPM.Location = new System.Drawing.Point(12, 141);
             this.gaugeRPM.Name = "gaugeRPM";
             this.gaugeRPM.NeedleCenterColor = System.Drawing.Color.Gray;
@@ -507,10 +552,6 @@
             0,
             0,
             0});
-            // 
-            // openFileDialog1
-            // 
-            this.openFileDialog1.FileName = "openFileDialog1";
             // 
             // Form1
             // 
