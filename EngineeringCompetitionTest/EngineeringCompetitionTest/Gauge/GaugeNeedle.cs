@@ -31,7 +31,6 @@ namespace GaugeControl
         {
             this.Priority = 10;
         }
-
         
         public virtual void SetOffset(PointF offset)
         {
@@ -88,8 +87,8 @@ namespace GaugeControl
 
     public class SimpleGaugeNeedle : GaugeNeedle
     {
-        public Color CenterColor{get; set;}
-        public Color NeedleColor{get; set;}
+        public Color CenterColor {get; set;}
+        public Color NeedleColor {get; set;}
         public float CenterRadius {get; set;}
 
         public enum NeedleShape{
@@ -124,6 +123,7 @@ namespace GaugeControl
             this.NeedleColor = Color.Red;
             this.CenterRadius = 15;
             this.Angle = 0;
+            this.needleSize = new Size(4, 66); //Choose some arbitrary value.
         }
 
 
@@ -205,17 +205,6 @@ namespace GaugeControl
         {
             this.Offset = center;
             NeedleBitMap = bitmap;
-
-            /*
-            if (isGridEnabled)
-            {
-                Graphics g = Graphics.FromImage(NeedleBitMap);
-
-                Pen myPen = new Pen(Color.Blue);
-                g.DrawLine(myPen, new Point((int)CenterPoint.X, 0), new PointF((int)CenterPoint.X, CenterPoint.Y * 2));
-                g.DrawLine(myPen, new Point(0, (int)CenterPoint.Y), new PointF(CenterPoint.X * 2, (int)CenterPoint.Y));
-            }
-            */
         }
         
         protected override void DrawElement(Graphics g)

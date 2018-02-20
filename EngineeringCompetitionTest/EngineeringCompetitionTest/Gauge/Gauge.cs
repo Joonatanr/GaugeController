@@ -15,21 +15,22 @@ namespace GaugeControl
 {
     public class Gauge : UserControl
     {
-        private Boolean drawGaugeBackground = true;
+        private Boolean     drawGaugeBackground = true;
+        private float       m_angle = 0.0f;
+        private Decimal     m_value = 0;
+        private Bitmap      gaugeBitmap;
 
-        private float m_angle = 0.0f;
-        private Decimal m_value = 0;
+        protected PointF    CenterPoint;
+ 
+        protected List<GaugeMarker> m_markerList = new List<GaugeMarker>();
+        protected Dictionary<string, GaugeNeedle> customNeedleDictionary = new Dictionary<string, GaugeNeedle>();
 
-        private PointF CenterPoint;
-        private Bitmap gaugeBitmap;
-
-        private List<GaugeMarker> m_markerList = new List<GaugeMarker>();
-        private Dictionary<string, GaugeNeedle> customNeedleDictionary = new Dictionary<string, GaugeNeedle>();
-
+        /* Main needle properties... */
         private Size        m_needleSize =                  new Size(4,66);
         private Color       m_needleColor =                 Color.Red;
         private float       m_needleCenterRadius =          10;
         private Color       m_needleCenterColor =           Color.Chocolate;
+
 
         private Boolean     m_isArcEnabled =                true;
         private int         m_arcWidth =                    3;
@@ -57,6 +58,27 @@ namespace GaugeControl
 
         public GaugeNeedle mainNeedle;
         public GaugeNumberMarker mainNumberMarker;
+
+
+        /* Declarations needed for collections. */
+        public delegate void ItemAddedEventHandler();
+
+        public class CustomCollection<T> : Collection<T> where T : GaugeElement
+        {
+            public ItemAddedEventHandler myHandler;
+
+            public CustomCollection(ItemAddedEventHandler handler)
+            {
+                myHandler = handler;
+            }
+
+            protected override void InsertItem(int index, T item)
+            {
+                //item.Name = item.GetType().Name.ToString() + " " + index;
+                base.InsertItem(index, item);
+                myHandler();
+            }
+        }
 
         #region properties
 
@@ -499,30 +521,6 @@ namespace GaugeControl
         public Decimal MinValue { get; set; } = 0; /* TODO : Take this into account. */
 
 
-
-        /****************************************************************/
-        /* This part is still experimental.                             */
-        /****************************************************************/
-
-        public delegate void ItemAddedEventHandler();
-
-        public class CustomCollection<T> : Collection<T> where T : GaugeElement
-        {
-            public ItemAddedEventHandler myHandler;
-
-            public CustomCollection(ItemAddedEventHandler handler)
-            {
-                myHandler = handler;
-            }
-
-            protected override void InsertItem(int index, T item)
-            {
-                //item.Name = item.GetType().Name.ToString() + " " + index;
-                base.InsertItem(index, item);
-                myHandler();
-            }
-        }
-
         private CustomCollection<GaugeTickMarker> m_TickMarkerCollection;
 
         [Category("Test")]
@@ -622,12 +620,8 @@ namespace GaugeControl
             }
             Refresh();
         }
-        /*
-        protected override void OnPaintBackground(PaintEventArgs pevent)
-        {
 
-        }
-        */
+
         protected override void OnResize(EventArgs e)
         {
             drawGaugeBackground = true;

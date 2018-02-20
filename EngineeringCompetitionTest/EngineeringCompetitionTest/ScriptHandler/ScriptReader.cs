@@ -34,9 +34,12 @@ namespace EngineeringCompetitionTest.ScriptHandler
     public class ScriptReader
     {
         public delegate void MeasurementListener(Measurement m);
+        public delegate void ScriptCompleteListener();
 
         public List<Measurement> Measurements = new List<Measurement>();
+
         public MeasurementListener Listener = null;
+        public ScriptCompleteListener CompleteListener = null;
 
         private String filePath;
         private Thread myThread;
@@ -128,6 +131,9 @@ namespace EngineeringCompetitionTest.ScriptHandler
                     Listener.Invoke(m);
                 }
             }
+
+            //Script has finished here.
+            CompleteListener?.Invoke();
         }
     }
 }

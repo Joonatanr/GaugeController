@@ -16,8 +16,10 @@ namespace EngineeringCompetitionTest
     {
         private SerialPort portMSSIM;
         private SerialPort portPSP;
-
         private ScriptReader myScriptReader;
+
+        private const Decimal SpeedConversionFactor = 0.1M;
+        private const Decimal RPMConversionFactor = 700M;
 
         public GaugeSimulator()
         {
@@ -144,8 +146,10 @@ namespace EngineeringCompetitionTest
             }
         }
 
-        private void numericUpDown1_ValueChanged(object sender, EventArgs e)
+        private void numericUpDownVoltage_ValueChanged(object sender, EventArgs e)
         {
+            UpdateRpmValues(numericUpDownVoltage.Value);
+            /*
             if (portPSP != null)
             {
                 if (portPSP.IsOpen)
@@ -165,22 +169,15 @@ namespace EngineeringCompetitionTest
             {
                 printLine("Error : PSP port not set");
             }
+            */
         }
 
-        private void printLine(String line)
-        {
-            if (richTextBox1.InvokeRequired)
-            {
-                this.Invoke(new Action<string>(printLine), new object[] { line });
-            }
-            else
-            {
-                richTextBox1.AppendText(line + Environment.NewLine);
-            }
-        }
+
 
         private void numericUpDownFrequency_ValueChanged(object sender, EventArgs e)
         {
+            UpdateSpeedValues(numericUpDownFrequency.Value);
+            /*
             if (portMSSIM != null)
             {
                 if (portMSSIM.IsOpen)
@@ -200,20 +197,32 @@ namespace EngineeringCompetitionTest
             {
                 printLine("Error : MSSIM2 port not set");
             }
+            */
         }
 
         private Decimal getRPMFromVoltage(Decimal voltage)
         {
             //voltage 0.0 - 5.0V
             //RPM 0 - 3000 RPM.
-            return voltage * 600;
+            return voltage * RPMConversionFactor;
+        }
+
+        private Decimal getVoltageFromRPM(Decimal RPM)
+        {
+            return RPM / RPMConversionFactor;
         }
 
         private Decimal getSpeedFromFrequency(Decimal freq)
         {
             //Frequency 0 - 2000 Hz
             //Speed 0-200 km/H
-            return freq / 10;
+            //return freq / 10;
+            return freq * SpeedConversionFactor;
+        }
+
+        private Decimal getFrequencyFromSpeed(Decimal speed)
+        {
+            return speed / SpeedConversionFactor;
         }
 
         private void UpdateGaugesFromMeasurement(Measurement m)
@@ -224,17 +233,54 @@ namespace EngineeringCompetitionTest
             }
             else
             {
-                int frequency = m.SpeedValue * 10;
-                Decimal voltage = (Decimal)m.RPMValue / 600;
-                
-                gaugeFrequency.Value = frequency;
-                gaugeVoltage.Value = voltage;
-                gaugeRPM.Value = m.RPMValue;
-                gaugeSpeed.Value = m.SpeedValue;
+                Decimal frequency = getFrequencyFromSpeed(m.SpeedValue);
+                Decimal voltage = getVoltageFromRPM(m.RPMValue);
 
-                sendVoltageCommand(voltage);
+                UpdateRpmValues(voltage);
+                UpdateSpeedValues(frequency);
+
                 /* TODO : Uncomment this. */
+                
+                //sendVoltageCommand(voltage);
                 //sendFrequencyCommand(frequency);
+            }
+        }
+
+
+        //We use voltage as "master" value.
+        private void UpdateRpmValues(Decimal voltage)
+        {
+            Decimal rpm_value = getRPMFromVoltage(voltage);
+
+            gaugeRPM.Value = rpm_value;
+            gaugeVoltage.Value = voltage;
+
+            /* Hopefully using these if clauses will prevent infinite calls. */
+            if (numericUpDownRPM.Value != rpm_value)
+            {
+                numericUpDownRPM.Value = rpm_value;
+            }
+
+            if (numericUpDownVoltage.Value != voltage)
+            {
+                numericUpDownVoltage.Value = voltage;
+            }
+        }
+
+        private void UpdateSpeedValues(Decimal frequency)
+        {
+            Decimal speed_value = getSpeedFromFrequency(frequency);
+            gaugeSpeed.Value = speed_value;
+            gaugeFrequency.Value = frequency;
+
+            if (numericUpDownFrequency.Value != frequency)
+            {
+                numericUpDownFrequency.Value = frequency;
+            }
+
+            if (numericUpDownSpeed.Value != speed_value)
+            {
+                numericUpDownSpeed.Value = speed_value;
             }
         }
 
@@ -253,10 +299,27 @@ namespace EngineeringCompetitionTest
 
             int numberOfPoints = myScriptReader.ReadMeasurementsFromFile();
             printLine("Read :" + numberOfPoints + " points");
+
+            
+            SetNumericButtons(false);
+
             myScriptReader.Listener = new ScriptReader.MeasurementListener(UpdateGaugesFromMeasurement);
+            myScriptReader.CompleteListener = new ScriptReader.ScriptCompleteListener(ScriptComplete);
             myScriptReader.PlayScript();
         }
 
+        private void ScriptComplete()
+        {
+            this.Invoke(new Action<bool>(SetNumericButtons), new object[] { true });
+        }
+
+        private void SetNumericButtons(bool mode)
+        {
+            numericUpDownFrequency.Enabled = mode;
+            numericUpDownRPM.Enabled = mode;
+            numericUpDownSpeed.Enabled = mode;
+            numericUpDownVoltage.Enabled = mode;
+        }
 
         private void sendFrequencyCommand(int frequency)
         {
@@ -309,6 +372,32 @@ namespace EngineeringCompetitionTest
         private void gaugeVoltage_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void printLine(String line)
+        {
+            if (richTextBox1.InvokeRequired)
+            {
+                this.Invoke(new Action<string>(printLine), new object[] { line });
+            }
+            else
+            {
+                richTextBox1.AppendText(line + Environment.NewLine);
+            }
+        }
+
+        private void numericUpDownRPM_ValueChanged(object sender, EventArgs e)
+        {
+            //Decimal voltage = numericUpDownRPM.Value / 600;
+            //UpdateRpmValues(voltage);
+            UpdateRpmValues(getVoltageFromRPM(numericUpDownRPM.Value));
+        }
+
+        private void numericUpDownSpeed_ValueChanged(object sender, EventArgs e)
+        {
+            //Decimal frequency = numericUpDownSpeed.Value * 10;
+            //UpdateSpeedValues(frequency);
+            UpdateSpeedValues(getFrequencyFromSpeed(numericUpDownSpeed.Value));
         }
     }
 }
