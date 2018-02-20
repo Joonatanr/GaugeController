@@ -35,14 +35,6 @@ namespace EngineeringCompetitionTest
             marker.markerColor = Color.White;
             marker.IntervalAngle = gaugeVoltage.NumberMarkerAngleInterval / 2;
             gaugeVoltage.AddMarker(marker);
-
-            
-            GaugeControl.GaugeLabel voltageText = new GaugeControl.GaugeLabel("Voltage");
-            voltageText.Text = "V-DC";
-            voltageText.Offset = new PointF(0, 20);
-            voltageText.TextColor = Color.OrangeRed;
-
-            gaugeVoltage.AddGaugeLabel(voltageText);
             
 
             /* RPM gauge */
@@ -312,6 +304,11 @@ namespace EngineeringCompetitionTest
             {
                 textBoxFileName.Text = openFileDialog1.FileName;
             }
+        }
+
+        private void gaugeVoltage_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

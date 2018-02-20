@@ -29,11 +29,13 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
-            GaugeControl.GaugeLabel gaugeLabel1 = new GaugeControl.GaugeLabel();
-            GaugeControl.GaugeTickMarker gaugeTickMarker1 = new GaugeControl.GaugeTickMarker();
-            GaugeControl.GaugeTickMarker gaugeTickMarker2 = new GaugeControl.GaugeTickMarker();
-            GaugeControl.GaugeTickMarker gaugeTickMarker3 = new GaugeControl.GaugeTickMarker();
-            GaugeControl.GaugeLabel gaugeLabel2 = new GaugeControl.GaugeLabel();
+            GaugeControl.GaugeLabel gaugeLabel9 = new GaugeControl.GaugeLabel();
+            GaugeControl.GaugeTickMarker gaugeTickMarker7 = new GaugeControl.GaugeTickMarker();
+            GaugeControl.GaugeTickMarker gaugeTickMarker8 = new GaugeControl.GaugeTickMarker();
+            GaugeControl.GaugeLabel gaugeLabel10 = new GaugeControl.GaugeLabel();
+            GaugeControl.GaugeTickMarker gaugeTickMarker9 = new GaugeControl.GaugeTickMarker();
+            GaugeControl.GaugeLabel gaugeLabel11 = new GaugeControl.GaugeLabel();
+            GaugeControl.GaugeLabel gaugeLabel12 = new GaugeControl.GaugeLabel();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.comboBoxPSPPortSelect = new System.Windows.Forms.ComboBox();
@@ -48,13 +50,10 @@
             this.buttonRunScript = new System.Windows.Forms.Button();
             this.buttonLoadScriptFile = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.label3 = new System.Windows.Forms.Label();
             this.richTextBox1 = new System.Windows.Forms.RichTextBox();
             this.numericUpDownVoltage = new System.Windows.Forms.NumericUpDown();
-            this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.numericUpDownFrequency = new System.Windows.Forms.NumericUpDown();
-            this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
@@ -62,6 +61,7 @@
             this.gaugeFrequency = new GaugeControl.Gauge();
             this.gaugeRPM = new GaugeControl.Gauge();
             this.gaugeVoltage = new GaugeControl.Gauge();
+            this.groupBox5 = new System.Windows.Forms.GroupBox();
             this.groupBox1.SuspendLayout();
             this.groupBox4.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -69,6 +69,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownVoltage)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownFrequency)).BeginInit();
+            this.groupBox5.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -76,9 +77,9 @@
             this.groupBox1.Controls.Add(this.groupBox4);
             this.groupBox1.Controls.Add(this.groupBox3);
             this.groupBox1.Controls.Add(this.groupBox2);
-            this.groupBox1.Location = new System.Drawing.Point(12, 3);
+            this.groupBox1.Location = new System.Drawing.Point(9, 12);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(1075, 123);
+            this.groupBox1.Size = new System.Drawing.Size(1069, 118);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "COM ports";
@@ -98,14 +99,14 @@
             // comboBoxPSPPortSelect
             // 
             this.comboBoxPSPPortSelect.FormattingEnabled = true;
-            this.comboBoxPSPPortSelect.Location = new System.Drawing.Point(174, 21);
+            this.comboBoxPSPPortSelect.Location = new System.Drawing.Point(89, 23);
             this.comboBoxPSPPortSelect.Name = "comboBoxPSPPortSelect";
             this.comboBoxPSPPortSelect.Size = new System.Drawing.Size(121, 24);
             this.comboBoxPSPPortSelect.TabIndex = 2;
             // 
             // buttonOpenPSPPort
             // 
-            this.buttonOpenPSPPort.Location = new System.Drawing.Point(89, 17);
+            this.buttonOpenPSPPort.Location = new System.Drawing.Point(4, 19);
             this.buttonOpenPSPPort.Name = "buttonOpenPSPPort";
             this.buttonOpenPSPPort.Size = new System.Drawing.Size(79, 30);
             this.buttonOpenPSPPort.TabIndex = 3;
@@ -115,7 +116,7 @@
             // 
             // buttonClosePSPPort
             // 
-            this.buttonClosePSPPort.Location = new System.Drawing.Point(89, 53);
+            this.buttonClosePSPPort.Location = new System.Drawing.Point(4, 55);
             this.buttonClosePSPPort.Name = "buttonClosePSPPort";
             this.buttonClosePSPPort.Size = new System.Drawing.Size(79, 30);
             this.buttonClosePSPPort.TabIndex = 4;
@@ -128,9 +129,9 @@
             this.groupBox3.Controls.Add(this.buttonCloseMSSIMPort);
             this.groupBox3.Controls.Add(this.comboBoxMSSIM2Port);
             this.groupBox3.Controls.Add(this.buttonOpenMSSIMPort);
-            this.groupBox3.Location = new System.Drawing.Point(795, 21);
+            this.groupBox3.Location = new System.Drawing.Point(774, 17);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(266, 88);
+            this.groupBox3.Size = new System.Drawing.Size(287, 92);
             this.groupBox3.TabIndex = 16;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "MSSIM2 port";
@@ -168,9 +169,9 @@
             this.groupBox2.Controls.Add(this.textBoxFileName);
             this.groupBox2.Controls.Add(this.buttonRunScript);
             this.groupBox2.Controls.Add(this.buttonLoadScriptFile);
-            this.groupBox2.Location = new System.Drawing.Point(328, 17);
+            this.groupBox2.Location = new System.Drawing.Point(327, 17);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(440, 92);
+            this.groupBox2.Size = new System.Drawing.Size(441, 92);
             this.groupBox2.TabIndex = 19;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Script";
@@ -204,31 +205,23 @@
             // 
             // pictureBox1
             // 
+            this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
             this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(340, 132);
+            this.pictureBox1.Location = new System.Drawing.Point(299, 41);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(415, 127);
+            this.pictureBox1.Size = new System.Drawing.Size(477, 101);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 8;
             this.pictureBox1.TabStop = false;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(39, 603);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(60, 17);
-            this.label3.TabIndex = 2;
-            this.label3.Text = "Voltage:";
             // 
             // richTextBox1
             // 
             this.richTextBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.richTextBox1.Location = new System.Drawing.Point(4, 642);
+            this.richTextBox1.Location = new System.Drawing.Point(5, 581);
             this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.Size = new System.Drawing.Size(1104, 87);
+            this.richTextBox1.Size = new System.Drawing.Size(1075, 108);
             this.richTextBox1.TabIndex = 4;
             this.richTextBox1.Text = "";
             // 
@@ -240,7 +233,7 @@
             0,
             0,
             131072});
-            this.numericUpDownVoltage.Location = new System.Drawing.Point(107, 602);
+            this.numericUpDownVoltage.Location = new System.Drawing.Point(299, 392);
             this.numericUpDownVoltage.Maximum = new decimal(new int[] {
             5,
             0,
@@ -251,21 +244,11 @@
             this.numericUpDownVoltage.TabIndex = 5;
             this.numericUpDownVoltage.ValueChanged += new System.EventHandler(this.numericUpDown1_ValueChanged);
             // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(186)));
-            this.label4.Location = new System.Drawing.Point(124, 404);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(77, 32);
-            this.label4.TabIndex = 8;
-            this.label4.Text = "RPM";
-            // 
             // label5
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(186)));
-            this.label5.Location = new System.Drawing.Point(290, 586);
+            this.label5.Location = new System.Drawing.Point(160, 386);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(113, 32);
             this.label5.TabIndex = 9;
@@ -273,7 +256,7 @@
             // 
             // numericUpDownFrequency
             // 
-            this.numericUpDownFrequency.Location = new System.Drawing.Point(943, 602);
+            this.numericUpDownFrequency.Location = new System.Drawing.Point(799, 397);
             this.numericUpDownFrequency.Maximum = new decimal(new int[] {
             2000,
             0,
@@ -284,21 +267,11 @@
             this.numericUpDownFrequency.TabIndex = 11;
             this.numericUpDownFrequency.ValueChanged += new System.EventHandler(this.numericUpDownFrequency_ValueChanged);
             // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(852, 604);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(75, 17);
-            this.label6.TabIndex = 12;
-            this.label6.Text = "Frequency";
-            this.label6.Click += new System.EventHandler(this.label6_Click);
-            // 
             // label7
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(186)));
-            this.label7.Location = new System.Drawing.Point(646, 585);
+            this.label7.Location = new System.Drawing.Point(644, 387);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(149, 32);
             this.label7.TabIndex = 13;
@@ -308,7 +281,7 @@
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(186)));
-            this.label8.Location = new System.Drawing.Point(849, 404);
+            this.label8.Location = new System.Drawing.Point(884, 404);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(98, 32);
             this.label8.TabIndex = 15;
@@ -332,22 +305,22 @@
             this.gaugeSpeed.BorderWidth = 7F;
             this.gaugeSpeed.isArcEnabled = true;
             this.gaugeSpeed.isCustomNeedleEnabled = false;
-            gaugeLabel1.Name = "GaugeLabel 0";
-            gaugeLabel1.OffsetX = new decimal(new int[] {
+            gaugeLabel9.Name = "GaugeLabel 0";
+            gaugeLabel9.OffsetX = new decimal(new int[] {
             0,
             0,
             0,
             0});
-            gaugeLabel1.OffsetY = new decimal(new int[] {
-            20,
+            gaugeLabel9.OffsetY = new decimal(new int[] {
+            25,
             0,
             0,
             0});
-            gaugeLabel1.Text = "km/h";
-            gaugeLabel1.TextColor = System.Drawing.Color.White;
-            gaugeLabel1.TextFont = new System.Drawing.Font("Arial", 12F);
-            this.gaugeSpeed.Labels.Add(gaugeLabel1);
-            this.gaugeSpeed.Location = new System.Drawing.Point(754, 141);
+            gaugeLabel9.Text = "km/h";
+            gaugeLabel9.TextColor = System.Drawing.Color.White;
+            gaugeLabel9.TextFont = new System.Drawing.Font("Arial", 12F);
+            this.gaugeSpeed.Labels.Add(gaugeLabel9);
+            this.gaugeSpeed.Location = new System.Drawing.Point(784, 21);
             this.gaugeSpeed.Name = "gaugeSpeed";
             this.gaugeSpeed.NeedleCenterColor = System.Drawing.Color.Gray;
             this.gaugeSpeed.NeedleCenterRadius = 15F;
@@ -372,46 +345,46 @@
             0,
             0});
             this.gaugeSpeed.NumberMarkerWidth = 40;
-            this.gaugeSpeed.Size = new System.Drawing.Size(289, 260);
+            this.gaugeSpeed.Size = new System.Drawing.Size(264, 260);
             this.gaugeSpeed.TabIndex = 14;
-            gaugeTickMarker1.BeginAngle = 140F;
-            gaugeTickMarker1.EndAngle = 400F;
-            gaugeTickMarker1.Height = 6F;
-            gaugeTickMarker1.IntervalAngle = 3.6F;
-            gaugeTickMarker1.markerColor = System.Drawing.Color.White;
-            gaugeTickMarker1.Name = "MinorTickMarker";
-            gaugeTickMarker1.OffsetX = new decimal(new int[] {
+            gaugeTickMarker7.BeginAngle = 140F;
+            gaugeTickMarker7.EndAngle = 400F;
+            gaugeTickMarker7.Height = 6F;
+            gaugeTickMarker7.IntervalAngle = 3.6F;
+            gaugeTickMarker7.markerColor = System.Drawing.Color.White;
+            gaugeTickMarker7.Name = "MinorTickMarker";
+            gaugeTickMarker7.OffsetX = new decimal(new int[] {
             0,
             0,
             0,
             0});
-            gaugeTickMarker1.OffsetY = new decimal(new int[] {
+            gaugeTickMarker7.OffsetY = new decimal(new int[] {
             0,
             0,
             0,
             0});
-            gaugeTickMarker1.Radius = 107F;
-            gaugeTickMarker1.Width = 2F;
-            gaugeTickMarker2.BeginAngle = 140F;
-            gaugeTickMarker2.EndAngle = 400F;
-            gaugeTickMarker2.Height = 8F;
-            gaugeTickMarker2.IntervalAngle = 18F;
-            gaugeTickMarker2.markerColor = System.Drawing.Color.White;
-            gaugeTickMarker2.Name = "MajorTickMarker";
-            gaugeTickMarker2.OffsetX = new decimal(new int[] {
+            gaugeTickMarker7.Radius = 107F;
+            gaugeTickMarker7.Width = 2F;
+            gaugeTickMarker8.BeginAngle = 140F;
+            gaugeTickMarker8.EndAngle = 400F;
+            gaugeTickMarker8.Height = 8F;
+            gaugeTickMarker8.IntervalAngle = 18F;
+            gaugeTickMarker8.markerColor = System.Drawing.Color.White;
+            gaugeTickMarker8.Name = "MajorTickMarker";
+            gaugeTickMarker8.OffsetX = new decimal(new int[] {
             0,
             0,
             0,
             0});
-            gaugeTickMarker2.OffsetY = new decimal(new int[] {
+            gaugeTickMarker8.OffsetY = new decimal(new int[] {
             0,
             0,
             0,
             0});
-            gaugeTickMarker2.Radius = 107F;
-            gaugeTickMarker2.Width = 3F;
-            this.gaugeSpeed.TickMarkers.Add(gaugeTickMarker1);
-            this.gaugeSpeed.TickMarkers.Add(gaugeTickMarker2);
+            gaugeTickMarker8.Radius = 107F;
+            gaugeTickMarker8.Width = 3F;
+            this.gaugeSpeed.TickMarkers.Add(gaugeTickMarker7);
+            this.gaugeSpeed.TickMarkers.Add(gaugeTickMarker8);
             this.gaugeSpeed.Value = new decimal(new int[] {
             0,
             0,
@@ -432,7 +405,22 @@
             this.gaugeFrequency.BorderWidth = 8F;
             this.gaugeFrequency.isArcEnabled = true;
             this.gaugeFrequency.isCustomNeedleEnabled = false;
-            this.gaugeFrequency.Location = new System.Drawing.Point(611, 377);
+            gaugeLabel10.Name = "GaugeElement";
+            gaugeLabel10.OffsetX = new decimal(new int[] {
+            0,
+            0,
+            0,
+            0});
+            gaugeLabel10.OffsetY = new decimal(new int[] {
+            16,
+            0,
+            0,
+            0});
+            gaugeLabel10.Text = "Hz";
+            gaugeLabel10.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
+            gaugeLabel10.TextFont = new System.Drawing.Font("Arial", 10F);
+            this.gaugeFrequency.Labels.Add(gaugeLabel10);
+            this.gaugeFrequency.Location = new System.Drawing.Point(610, 180);
             this.gaugeFrequency.Name = "gaugeFrequency";
             this.gaugeFrequency.NeedleCenterColor = System.Drawing.Color.Chocolate;
             this.gaugeFrequency.NeedleCenterRadius = 14F;
@@ -459,25 +447,25 @@
             this.gaugeFrequency.NumberMarkerWidth = 40;
             this.gaugeFrequency.Size = new System.Drawing.Size(208, 206);
             this.gaugeFrequency.TabIndex = 10;
-            gaugeTickMarker3.BeginAngle = 120F;
-            gaugeTickMarker3.EndAngle = 420F;
-            gaugeTickMarker3.Height = 7F;
-            gaugeTickMarker3.IntervalAngle = 15F;
-            gaugeTickMarker3.markerColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
-            gaugeTickMarker3.Name = "GaugeTickMarker 0";
-            gaugeTickMarker3.OffsetX = new decimal(new int[] {
+            gaugeTickMarker9.BeginAngle = 120F;
+            gaugeTickMarker9.EndAngle = 420F;
+            gaugeTickMarker9.Height = 7F;
+            gaugeTickMarker9.IntervalAngle = 15F;
+            gaugeTickMarker9.markerColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
+            gaugeTickMarker9.Name = "GaugeTickMarker 0";
+            gaugeTickMarker9.OffsetX = new decimal(new int[] {
             0,
             0,
             0,
             0});
-            gaugeTickMarker3.OffsetY = new decimal(new int[] {
+            gaugeTickMarker9.OffsetY = new decimal(new int[] {
             0,
             0,
             0,
             0});
-            gaugeTickMarker3.Radius = 59F;
-            gaugeTickMarker3.Width = 2F;
-            this.gaugeFrequency.TickMarkers.Add(gaugeTickMarker3);
+            gaugeTickMarker9.Radius = 59F;
+            gaugeTickMarker9.Width = 2F;
+            this.gaugeFrequency.TickMarkers.Add(gaugeTickMarker9);
             this.gaugeFrequency.Value = new decimal(new int[] {
             0,
             0,
@@ -498,22 +486,22 @@
             this.gaugeRPM.BorderWidth = 7F;
             this.gaugeRPM.isArcEnabled = true;
             this.gaugeRPM.isCustomNeedleEnabled = false;
-            gaugeLabel2.Name = "GaugeLabel 0";
-            gaugeLabel2.OffsetX = new decimal(new int[] {
+            gaugeLabel11.Name = "GaugeLabel 0";
+            gaugeLabel11.OffsetX = new decimal(new int[] {
             0,
             0,
             0,
             0});
-            gaugeLabel2.OffsetY = new decimal(new int[] {
-            20,
+            gaugeLabel11.OffsetY = new decimal(new int[] {
+            24,
             0,
             0,
             0});
-            gaugeLabel2.Text = "RPM";
-            gaugeLabel2.TextColor = System.Drawing.Color.White;
-            gaugeLabel2.TextFont = new System.Drawing.Font("Arial", 12F);
-            this.gaugeRPM.Labels.Add(gaugeLabel2);
-            this.gaugeRPM.Location = new System.Drawing.Point(12, 141);
+            gaugeLabel11.Text = "RPM";
+            gaugeLabel11.TextColor = System.Drawing.Color.White;
+            gaugeLabel11.TextFont = new System.Drawing.Font("Arial", 12F);
+            this.gaugeRPM.Labels.Add(gaugeLabel11);
+            this.gaugeRPM.Location = new System.Drawing.Point(20, 21);
             this.gaugeRPM.Name = "gaugeRPM";
             this.gaugeRPM.NeedleCenterColor = System.Drawing.Color.Gray;
             this.gaugeRPM.NeedleCenterRadius = 15F;
@@ -538,7 +526,7 @@
             0,
             0});
             this.gaugeRPM.NumberMarkerWidth = 40;
-            this.gaugeRPM.Size = new System.Drawing.Size(321, 260);
+            this.gaugeRPM.Size = new System.Drawing.Size(265, 260);
             this.gaugeRPM.TabIndex = 7;
             this.gaugeRPM.Value = new decimal(new int[] {
             0,
@@ -560,7 +548,22 @@
             this.gaugeVoltage.BorderWidth = 8F;
             this.gaugeVoltage.isArcEnabled = true;
             this.gaugeVoltage.isCustomNeedleEnabled = false;
-            this.gaugeVoltage.Location = new System.Drawing.Point(239, 377);
+            gaugeLabel12.Name = "GaugeElement";
+            gaugeLabel12.OffsetX = new decimal(new int[] {
+            0,
+            0,
+            0,
+            0});
+            gaugeLabel12.OffsetY = new decimal(new int[] {
+            18,
+            0,
+            0,
+            0});
+            gaugeLabel12.Text = "V-DC";
+            gaugeLabel12.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
+            gaugeLabel12.TextFont = new System.Drawing.Font("Arial", 10F);
+            this.gaugeVoltage.Labels.Add(gaugeLabel12);
+            this.gaugeVoltage.Location = new System.Drawing.Point(250, 180);
             this.gaugeVoltage.Name = "gaugeVoltage";
             this.gaugeVoltage.NeedleCenterColor = System.Drawing.Color.Chocolate;
             this.gaugeVoltage.NeedleCenterRadius = 14F;
@@ -592,26 +595,34 @@
             0,
             0,
             0});
+            this.gaugeVoltage.Load += new System.EventHandler(this.gaugeVoltage_Load);
+            // 
+            // groupBox5
+            // 
+            this.groupBox5.Controls.Add(this.gaugeRPM);
+            this.groupBox5.Controls.Add(this.pictureBox1);
+            this.groupBox5.Controls.Add(this.gaugeVoltage);
+            this.groupBox5.Controls.Add(this.gaugeFrequency);
+            this.groupBox5.Controls.Add(this.numericUpDownVoltage);
+            this.groupBox5.Controls.Add(this.label7);
+            this.groupBox5.Controls.Add(this.numericUpDownFrequency);
+            this.groupBox5.Controls.Add(this.gaugeSpeed);
+            this.groupBox5.Controls.Add(this.label5);
+            this.groupBox5.Location = new System.Drawing.Point(9, 136);
+            this.groupBox5.Name = "groupBox5";
+            this.groupBox5.Size = new System.Drawing.Size(1069, 439);
+            this.groupBox5.TabIndex = 16;
+            this.groupBox5.TabStop = false;
+            this.groupBox5.Text = "Gauges";
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1113, 731);
-            this.Controls.Add(this.pictureBox1);
+            this.ClientSize = new System.Drawing.Size(1086, 692);
+            this.Controls.Add(this.groupBox5);
             this.Controls.Add(this.label8);
-            this.Controls.Add(this.gaugeSpeed);
-            this.Controls.Add(this.label7);
-            this.Controls.Add(this.label6);
-            this.Controls.Add(this.numericUpDownFrequency);
-            this.Controls.Add(this.gaugeFrequency);
-            this.Controls.Add(this.label5);
-            this.Controls.Add(this.label4);
-            this.Controls.Add(this.gaugeRPM);
-            this.Controls.Add(this.gaugeVoltage);
-            this.Controls.Add(this.numericUpDownVoltage);
             this.Controls.Add(this.richTextBox1);
-            this.Controls.Add(this.label3);
             this.Controls.Add(this.groupBox1);
             this.Name = "Form1";
             this.Text = "Form1";
@@ -624,6 +635,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownVoltage)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownFrequency)).EndInit();
+            this.groupBox5.ResumeLayout(false);
+            this.groupBox5.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -638,16 +651,13 @@
         private System.Windows.Forms.Button buttonCloseMSSIMPort;
         private System.Windows.Forms.Button buttonOpenMSSIMPort;
         private System.Windows.Forms.ComboBox comboBoxMSSIM2Port;
-        private System.Windows.Forms.Label label3;
         private System.Windows.Forms.RichTextBox richTextBox1;
         private System.Windows.Forms.NumericUpDown numericUpDownVoltage;
         private GaugeControl.Gauge gaugeVoltage;
         private GaugeControl.Gauge gaugeRPM;
-        private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
         private GaugeControl.Gauge gaugeFrequency;
         private System.Windows.Forms.NumericUpDown numericUpDownFrequency;
-        private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
         private GaugeControl.Gauge gaugeSpeed;
         private System.Windows.Forms.Label label8;
@@ -659,6 +669,7 @@
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
+        private System.Windows.Forms.GroupBox groupBox5;
     }
 }
 
