@@ -517,7 +517,7 @@ namespace GaugeControl
 
         public delegate void ItemAddedEventHandler();
 
-        public class CustomCollection<T> : Collection<T>
+        public class CustomCollection<T> : Collection<T> where T : GaugeElement
         {
             public ItemAddedEventHandler myHandler;
 
@@ -528,6 +528,7 @@ namespace GaugeControl
 
             protected override void InsertItem(int index, T item)
             {
+                //item.Name = item.GetType().Name.ToString() + " " + index;
                 base.InsertItem(index, item);
                 myHandler();
             }

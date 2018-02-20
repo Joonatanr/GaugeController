@@ -66,11 +66,9 @@ namespace EngineeringCompetitionTest
             gaugeRPM.AddMarker(rpm_marker);
             gaugeRPM.AddMarker(rpm_secondary_marker);
 
-            /* Frequency gauge */
-
-            /* TODO : Add markers. */
 
             /* Speed gauge*/
+            /*
             GaugeControl.GaugeTickMarker speed_marker = new GaugeControl.GaugeTickMarker(gaugeSpeed.ArcRadius - 3);
             speed_marker.BeginAngle = gaugeSpeed.ArcStartAngle;
             speed_marker.EndAngle = gaugeSpeed.ArcEndAngle;
@@ -80,6 +78,7 @@ namespace EngineeringCompetitionTest
             speed_marker.IntervalAngle = gaugeSpeed.NumberMarkerAngleInterval / 5;
 
             gaugeSpeed.AddMarker(speed_marker);
+            */
         }
 
         private void populateCOMPorts()

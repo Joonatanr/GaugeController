@@ -31,6 +31,8 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             GaugeControl.GaugeLabel gaugeLabel1 = new GaugeControl.GaugeLabel();
             GaugeControl.GaugeTickMarker gaugeTickMarker1 = new GaugeControl.GaugeTickMarker();
+            GaugeControl.GaugeTickMarker gaugeTickMarker2 = new GaugeControl.GaugeTickMarker();
+            GaugeControl.GaugeTickMarker gaugeTickMarker3 = new GaugeControl.GaugeTickMarker();
             GaugeControl.GaugeLabel gaugeLabel2 = new GaugeControl.GaugeLabel();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
@@ -330,7 +332,7 @@
             this.gaugeSpeed.BorderWidth = 7F;
             this.gaugeSpeed.isArcEnabled = true;
             this.gaugeSpeed.isCustomNeedleEnabled = false;
-            gaugeLabel1.Name = "GaugeElement";
+            gaugeLabel1.Name = "GaugeLabel 0";
             gaugeLabel1.OffsetX = new decimal(new int[] {
             0,
             0,
@@ -358,7 +360,7 @@
             this.gaugeSpeed.NumberMarkerColor = System.Drawing.Color.White;
             this.gaugeSpeed.NumberMarkerFont = new System.Drawing.Font("Tahoma", 8F);
             this.gaugeSpeed.NumberMarkerHeight = 12;
-            this.gaugeSpeed.NumberMarkerOffset = -18;
+            this.gaugeSpeed.NumberMarkerOffset = -21;
             this.gaugeSpeed.NumberMarkerValueBegin = new decimal(new int[] {
             0,
             0,
@@ -372,6 +374,44 @@
             this.gaugeSpeed.NumberMarkerWidth = 40;
             this.gaugeSpeed.Size = new System.Drawing.Size(289, 260);
             this.gaugeSpeed.TabIndex = 14;
+            gaugeTickMarker1.BeginAngle = 140F;
+            gaugeTickMarker1.EndAngle = 400F;
+            gaugeTickMarker1.Height = 6F;
+            gaugeTickMarker1.IntervalAngle = 3.6F;
+            gaugeTickMarker1.markerColor = System.Drawing.Color.White;
+            gaugeTickMarker1.Name = "MinorTickMarker";
+            gaugeTickMarker1.OffsetX = new decimal(new int[] {
+            0,
+            0,
+            0,
+            0});
+            gaugeTickMarker1.OffsetY = new decimal(new int[] {
+            0,
+            0,
+            0,
+            0});
+            gaugeTickMarker1.Radius = 107F;
+            gaugeTickMarker1.Width = 2F;
+            gaugeTickMarker2.BeginAngle = 140F;
+            gaugeTickMarker2.EndAngle = 400F;
+            gaugeTickMarker2.Height = 8F;
+            gaugeTickMarker2.IntervalAngle = 18F;
+            gaugeTickMarker2.markerColor = System.Drawing.Color.White;
+            gaugeTickMarker2.Name = "MajorTickMarker";
+            gaugeTickMarker2.OffsetX = new decimal(new int[] {
+            0,
+            0,
+            0,
+            0});
+            gaugeTickMarker2.OffsetY = new decimal(new int[] {
+            0,
+            0,
+            0,
+            0});
+            gaugeTickMarker2.Radius = 107F;
+            gaugeTickMarker2.Width = 3F;
+            this.gaugeSpeed.TickMarkers.Add(gaugeTickMarker1);
+            this.gaugeSpeed.TickMarkers.Add(gaugeTickMarker2);
             this.gaugeSpeed.Value = new decimal(new int[] {
             0,
             0,
@@ -419,25 +459,25 @@
             this.gaugeFrequency.NumberMarkerWidth = 40;
             this.gaugeFrequency.Size = new System.Drawing.Size(208, 206);
             this.gaugeFrequency.TabIndex = 10;
-            gaugeTickMarker1.BeginAngle = 120F;
-            gaugeTickMarker1.EndAngle = 420F;
-            gaugeTickMarker1.Height = 7F;
-            gaugeTickMarker1.IntervalAngle = 15F;
-            gaugeTickMarker1.markerColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
-            gaugeTickMarker1.Name = "GaugeElement";
-            gaugeTickMarker1.OffsetX = new decimal(new int[] {
+            gaugeTickMarker3.BeginAngle = 120F;
+            gaugeTickMarker3.EndAngle = 420F;
+            gaugeTickMarker3.Height = 7F;
+            gaugeTickMarker3.IntervalAngle = 15F;
+            gaugeTickMarker3.markerColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
+            gaugeTickMarker3.Name = "GaugeTickMarker 0";
+            gaugeTickMarker3.OffsetX = new decimal(new int[] {
             0,
             0,
             0,
             0});
-            gaugeTickMarker1.OffsetY = new decimal(new int[] {
+            gaugeTickMarker3.OffsetY = new decimal(new int[] {
             0,
             0,
             0,
             0});
-            gaugeTickMarker1.Radius = 59F;
-            gaugeTickMarker1.Width = 2F;
-            this.gaugeFrequency.TickMarkers.Add(gaugeTickMarker1);
+            gaugeTickMarker3.Radius = 59F;
+            gaugeTickMarker3.Width = 2F;
+            this.gaugeFrequency.TickMarkers.Add(gaugeTickMarker3);
             this.gaugeFrequency.Value = new decimal(new int[] {
             0,
             0,
@@ -458,7 +498,7 @@
             this.gaugeRPM.BorderWidth = 7F;
             this.gaugeRPM.isArcEnabled = true;
             this.gaugeRPM.isCustomNeedleEnabled = false;
-            gaugeLabel2.Name = "GaugeElement";
+            gaugeLabel2.Name = "GaugeLabel 0";
             gaugeLabel2.OffsetX = new decimal(new int[] {
             0,
             0,
@@ -482,7 +522,7 @@
             this.gaugeRPM.NeedleSize = new System.Drawing.Size(6, 85);
             this.gaugeRPM.NumberMarkerAngleBegin = 150F;
             this.gaugeRPM.NumberMarkerAngleEnd = 390F;
-            this.gaugeRPM.NumberMarkerAngleInterval = 40F;
+            this.gaugeRPM.NumberMarkerAngleInterval = 34F;
             this.gaugeRPM.NumberMarkerColor = System.Drawing.Color.White;
             this.gaugeRPM.NumberMarkerFont = new System.Drawing.Font("Tahoma", 8F);
             this.gaugeRPM.NumberMarkerHeight = 12;
