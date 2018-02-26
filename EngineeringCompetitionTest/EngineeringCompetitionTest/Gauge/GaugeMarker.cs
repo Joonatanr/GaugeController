@@ -13,7 +13,7 @@ namespace GaugeControl
         protected float     m_beginAngle =  0f;
         protected float     m_endAngle =    360f;
         protected float     m_width =       5;
-        protected float       m_height =      10;
+        protected float     m_height =      10;
 
         private float       m_interval =    10;
         private Color       m_color =       Color.White;

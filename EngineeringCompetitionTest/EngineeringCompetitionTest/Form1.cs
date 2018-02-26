@@ -21,6 +21,9 @@ namespace EngineeringCompetitionTest
         private const Decimal SpeedConversionFactor = 0.1M;
         private const Decimal RPMConversionFactor = 700M;
 
+        private int myFrequency = 0;
+        private Decimal myVoltage;
+
         public GaugeSimulator()
         {
             InitializeComponent();
@@ -59,20 +62,6 @@ namespace EngineeringCompetitionTest
 
             gaugeRPM.AddMarker(rpm_marker);
             gaugeRPM.AddMarker(rpm_secondary_marker);
-
-
-            /* Speed gauge*/
-            /*
-            GaugeControl.GaugeTickMarker speed_marker = new GaugeControl.GaugeTickMarker(gaugeSpeed.ArcRadius - 3);
-            speed_marker.BeginAngle = gaugeSpeed.ArcStartAngle;
-            speed_marker.EndAngle = gaugeSpeed.ArcEndAngle;
-            speed_marker.Width = 2;
-            speed_marker.Height = 6;
-            speed_marker.markerColor = Color.White;
-            speed_marker.IntervalAngle = gaugeSpeed.NumberMarkerAngleInterval / 5;
-
-            gaugeSpeed.AddMarker(speed_marker);
-            */
         }
 
         private void populateCOMPorts()
@@ -117,7 +106,7 @@ namespace EngineeringCompetitionTest
                     portMSSIM = new SerialPort(comboBoxMSSIM2Port.SelectedItem.ToString(), 115200);
                     portMSSIM.NewLine = "\r\n";
                     portMSSIM.Open();
-                    printLine("Opened COM port for MSSIM2 : " + portPSP.PortName);
+                    printLine("Opened COM port for MSSIM2 : " + portMSSIM.PortName);
                 }
                 catch (Exception ex)
                 {
@@ -238,11 +227,7 @@ namespace EngineeringCompetitionTest
 
                 UpdateRpmValues(voltage);
                 UpdateSpeedValues(frequency);
-
-                /* TODO : Uncomment this. */
                 
-                //sendVoltageCommand(voltage);
-                //sendFrequencyCommand(frequency);
             }
         }
 
@@ -265,6 +250,8 @@ namespace EngineeringCompetitionTest
             {
                 numericUpDownVoltage.Value = voltage;
             }
+
+            sendVoltageCommand(voltage);
         }
 
         private void UpdateSpeedValues(Decimal frequency)
@@ -282,6 +269,8 @@ namespace EngineeringCompetitionTest
             {
                 numericUpDownSpeed.Value = speed_value;
             }
+
+            sendFrequencyCommand(frequency);
         }
 
 
@@ -321,30 +310,39 @@ namespace EngineeringCompetitionTest
             numericUpDownVoltage.Enabled = mode;
         }
 
-        private void sendFrequencyCommand(int frequency)
+        private void sendFrequencyCommand(Decimal frequency)
         {
-            string command = "F:" + frequency;
-            try
+            if (myFrequency != (int)frequency)
             {
-                portMSSIM.WriteLine(command);
-            }
-            catch (Exception ex)
-            {
-                printLine(ex.Message);
+                string command = "F" + (int)frequency;
+                try
+                {
+                    //printLine("Sent command : " + command);
+                    portMSSIM.WriteLine(command);
+                }
+                catch (Exception ex)
+                {
+                    printLine(ex.Message);
+                }
+                myFrequency = (int)frequency;
             }
         }
 
         private void sendVoltageCommand(Decimal voltage)
         {
-            string command = String.Format("SV {0}", voltage.ToString("00.00"));
-            command = command.Replace(',', '.');
-            try
+            if (voltage != myVoltage)
             {
-                portPSP.WriteLine(command);
-            }
-            catch (Exception ex)
-            {
-                printLine(ex.Message);
+                string command = String.Format("SV {0}", voltage.ToString("00.00"));
+                command = command.Replace(',', '.');
+                try
+                {
+                    portPSP.WriteLine(command);
+                }
+                catch (Exception ex)
+                {
+                    printLine(ex.Message);
+                }
+                myVoltage = voltage;
             }
         }
 
@@ -353,6 +351,16 @@ namespace EngineeringCompetitionTest
             if (myScriptReader != null)
             {
                 myScriptReader.StopScript();
+            }
+
+            if (portMSSIM != null)
+            {
+                portMSSIM.Close();
+            }
+
+            if (portPSP != null)
+            {
+                portPSP.Close();
             }
         }
 
@@ -387,16 +395,12 @@ namespace EngineeringCompetitionTest
         }
 
         private void numericUpDownRPM_ValueChanged(object sender, EventArgs e)
-        {
-            //Decimal voltage = numericUpDownRPM.Value / 600;
-            //UpdateRpmValues(voltage);
+        {   
             UpdateRpmValues(getVoltageFromRPM(numericUpDownRPM.Value));
         }
 
         private void numericUpDownSpeed_ValueChanged(object sender, EventArgs e)
         {
-            //Decimal frequency = numericUpDownSpeed.Value * 10;
-            //UpdateSpeedValues(frequency);
             UpdateSpeedValues(getFrequencyFromSpeed(numericUpDownSpeed.Value));
         }
     }
