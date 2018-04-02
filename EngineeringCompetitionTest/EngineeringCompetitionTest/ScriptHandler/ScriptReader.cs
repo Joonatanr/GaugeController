@@ -51,6 +51,11 @@ namespace EngineeringCompetitionTest.ScriptHandler
 
         public int ReadMeasurementsFromFile()
         {
+            if (filePath == null)
+            {
+                throw new NullReferenceException("Error : File Path not set");
+            }
+
             using (var reader = new StreamReader(filePath))
             {
                 Measurements = new List<Measurement>();

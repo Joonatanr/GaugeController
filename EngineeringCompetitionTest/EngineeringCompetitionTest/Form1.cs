@@ -28,7 +28,14 @@ namespace EngineeringCompetitionTest
         {
             InitializeComponent();
             populateCOMPorts();
-            
+
+            /* Initialize these to empty values. */
+            portPSP = new SerialPort();
+            portMSSIM = new SerialPort();
+
+            //DiscoverDevicesOnCom();
+
+            /* TODO : Should exchange this part with designer generated code. */
             /* Voltage gauge */
 
             GaugeControl.GaugeTickMarker marker = new GaugeControl.GaugeTickMarker(gaugeVoltage.ArcRadius);
@@ -72,6 +79,166 @@ namespace EngineeringCompetitionTest
 
             comboBoxPSPPortSelect.DataSource = ports; 
             comboBoxMSSIM2Port.DataSource = secondports;
+        }
+
+        private void DiscoverDevicesOnCom()
+        {
+            String [] names = SerialPort.GetPortNames();
+            Boolean isPSPFound = false;
+            Boolean isMSSIMFound = false;
+
+            try
+            {
+                portMSSIM.Close();
+            }
+            catch (Exception)
+            {
+                printLine("Could not close MSSIM COM port");
+            }
+
+            try
+            {
+                portPSP.Close();
+            }
+            catch (Exception)
+            {
+                printLine("Could not close PSP COM port");
+            }
+
+            foreach (String name in names)
+            {
+                printLine("Checking port " + name);
+                if (isPSPFound == false)
+                {
+                    if (isPortPSP(name, ref portPSP))
+                    {
+                        printLine("Found PSP on port: " + name);
+                        isPSPFound = true;
+                        continue;
+                    }
+                }
+
+                if (isMSSIMFound == false)
+                {
+                    if (isPortMSSIM2(name, ref portMSSIM))
+                    {
+                        printLine("Found MSSIM2 on port: " + name);
+                        isMSSIMFound = true;
+                    }
+                }
+            }
+        }
+
+        private Boolean isPortMSSIM2(String name, ref SerialPort output)
+        {
+            Boolean result = false;
+            SerialPort myPort = new SerialPort(name, 115200);
+            myPort.ReadTimeout = 500;
+            myPort.WriteTimeout = 500;
+            myPort.NewLine = "\r\n";
+            myPort.DtrEnable = true;
+
+            try
+            {
+                myPort.Open();
+                /* Lets clear any existing data from the buffer */
+                myPort.WriteLine(" ");
+                try
+                {
+                    myPort.ReadLine();
+                }
+                catch (TimeoutException)
+                {
+
+                }
+
+                myPort.WriteLine("RF");
+
+                try
+                {
+                    String response = myPort.ReadLine();
+                    //printLine("Response is : " + response);
+                    if (response.Contains("- RTSS f"))
+                    {
+                        output = myPort;
+                        result = true;
+                    }
+                }
+                catch (TimeoutException)
+                {
+                    
+                }
+            }
+            catch (Exception ex)
+            {
+                printLine("Exception : " + ex.Message);
+            }
+
+            if (myPort.IsOpen && result == false)
+            {
+                /* TODO - Should actually use this port... */
+                myPort.Close();
+            }
+            return result;
+        }
+
+        private Boolean isPortPSP(String name, ref SerialPort Output)
+        {
+            Boolean result = false;
+            SerialPort myPort = new SerialPort(name, 2400);
+            String response;
+
+            myPort.ReadTimeout = 1500;
+            myPort.WriteTimeout = 1000;
+            myPort.NewLine = "\r";
+            myPort.DtrEnable = true;
+
+            /* Check if this is the PSP */
+            try
+            {
+                myPort.Open();
+                myPort.WriteLine("L");
+                try
+                {
+                    response = myPort.ReadLine();
+                    if (isResponseFromPSP(response))
+                    {
+                        Output = myPort;
+                        result = true;
+                    }
+
+                }
+                catch (TimeoutException)
+                {
+                    //printLine("Timed out");
+                }
+            }
+            catch (Exception ex)
+            {
+                printLine("Exception : " + ex.Message);
+            }
+
+            if (myPort.IsOpen && result == false)
+            {
+                myPort.Close();
+            }
+            return result;
+        }
+
+        private Boolean isResponseFromPSP(String response)
+        {
+            List<char> prefixCharacters = new List<char>() { 'V', 'A', 'W', 'U', 'I', 'P', 'F' };
+            //printLine("Got response " + response);
+
+            foreach (char c in prefixCharacters)
+            {
+                if (!response.Contains<char>(c))
+                {
+                    return false;
+                }
+            }
+
+            return true;
         }
 
         private void buttonOpenPSPPort_Click(object sender, EventArgs e)
@@ -138,27 +305,6 @@ namespace EngineeringCompetitionTest
         private void numericUpDownVoltage_ValueChanged(object sender, EventArgs e)
         {
             UpdateRpmValues(numericUpDownVoltage.Value);
-            /*
-            if (portPSP != null)
-            {
-                if (portPSP.IsOpen)
-                {
-                    string command = String.Format("SV {0}", numericUpDownVoltage.Value.ToString("00.00"));
-                    command = command.Replace(',', '.');
-                    gaugeVoltage.Value = numericUpDownVoltage.Value;
-                    gaugeRPM.Value = getRPMFromVoltage(numericUpDownVoltage.Value);
-                    portPSP.WriteLine(command);
-                }
-                else
-                {
-                    printLine("Error : PSP port not open");
-                }
-            }
-            else
-            {
-                printLine("Error : PSP port not set");
-            }
-            */
         }
 
 
@@ -166,27 +312,6 @@ namespace EngineeringCompetitionTest
         private void numericUpDownFrequency_ValueChanged(object sender, EventArgs e)
         {
             UpdateSpeedValues(numericUpDownFrequency.Value);
-            /*
-            if (portMSSIM != null)
-            {
-                if (portMSSIM.IsOpen)
-                {
-                    Decimal freq = numericUpDownFrequency.Value;
-                    gaugeFrequency.Value = freq;
-                    gaugeSpeed.Value = getSpeedFromFrequency(freq);
-                    string command = "F:" + freq;
-                    portMSSIM.WriteLine(command);
-                }
-                else
-                {
-                    printLine("Error : MSSIM2 port not open");
-                }
-            }
-            else
-            {
-                printLine("Error : MSSIM2 port not set");
-            }
-            */
         }
 
         private Decimal getRPMFromVoltage(Decimal voltage)
@@ -276,25 +401,43 @@ namespace EngineeringCompetitionTest
 
         private void buttonRunScript_Click(object sender, EventArgs e)
         {
-            printLine("Starting script.");
-            if (textBoxFileName.Text == null)
+            if (!portMSSIM.IsOpen || !portPSP.IsOpen)
+            {
+                printLine("Devices not connected, cannot start script, press autoconnect to automatically discover connected devices");
+                return;
+            }
+
+            if (String.IsNullOrEmpty(textBoxFileName.Text))
             {
                 printLine("Error : No script file selected");
                 return;
             }
 
-            //myScriptReader = new ScriptReader("Script1.csv");
             myScriptReader = new ScriptReader(textBoxFileName.Text);
 
-            int numberOfPoints = myScriptReader.ReadMeasurementsFromFile();
-            printLine("Read :" + numberOfPoints + " points");
+            try
+            {
+                int numberOfPoints = myScriptReader.ReadMeasurementsFromFile();
+                printLine("Read :" + numberOfPoints + " points");
+            }
+            catch (NullReferenceException)
+            {
+                printLine("Failed to read measurement points from file");
+                return;
+            }
 
-            
-            SetNumericButtons(false);
-
-            myScriptReader.Listener = new ScriptReader.MeasurementListener(UpdateGaugesFromMeasurement);
-            myScriptReader.CompleteListener = new ScriptReader.ScriptCompleteListener(ScriptComplete);
-            myScriptReader.PlayScript();
+            try
+            { 
+                SetNumericButtons(false);
+                printLine("Starting script.");
+                myScriptReader.Listener = new ScriptReader.MeasurementListener(UpdateGaugesFromMeasurement);
+                myScriptReader.CompleteListener = new ScriptReader.ScriptCompleteListener(ScriptComplete);
+                myScriptReader.PlayScript();
+            }
+            catch (Exception ex)
+            {
+                printLine("Could not load script " + ex.Message);
+            }
         }
 
         private void ScriptComplete()
@@ -402,6 +545,21 @@ namespace EngineeringCompetitionTest
         private void numericUpDownSpeed_ValueChanged(object sender, EventArgs e)
         {
             UpdateSpeedValues(getFrequencyFromSpeed(numericUpDownSpeed.Value));
+        }
+
+        private void GaugeSimulator_Load(object sender, EventArgs e)
+        {
+            //DiscoverDevicesOnCom();
+        }
+
+        private void GaugeSimulator_Shown(object sender, EventArgs e)
+        {
+            //DiscoverDevicesOnCom();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            DiscoverDevicesOnCom();
         }
     }
 }
