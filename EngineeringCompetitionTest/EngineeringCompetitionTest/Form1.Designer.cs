@@ -31,11 +31,12 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(GaugeSimulator));
             GaugeControl.GaugeLabel gaugeLabel1 = new GaugeControl.GaugeLabel();
             GaugeControl.GaugeLabel gaugeLabel2 = new GaugeControl.GaugeLabel();
-            GaugeControl.GaugeLabel gaugeLabel3 = new GaugeControl.GaugeLabel();
             GaugeControl.GaugeTickMarker gaugeTickMarker1 = new GaugeControl.GaugeTickMarker();
-            GaugeControl.GaugeLabel gaugeLabel4 = new GaugeControl.GaugeLabel();
+            GaugeControl.GaugeLabel gaugeLabel3 = new GaugeControl.GaugeLabel();
             GaugeControl.GaugeTickMarker gaugeTickMarker2 = new GaugeControl.GaugeTickMarker();
+            GaugeControl.GaugeLabel gaugeLabel4 = new GaugeControl.GaugeLabel();
             GaugeControl.GaugeTickMarker gaugeTickMarker3 = new GaugeControl.GaugeTickMarker();
+            GaugeControl.GaugeTickMarker gaugeTickMarker4 = new GaugeControl.GaugeTickMarker();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.comboBoxPSPPortSelect = new System.Windows.Forms.ComboBox();
@@ -58,6 +59,7 @@
             this.label8 = new System.Windows.Forms.Label();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
+            this.button1 = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.numericUpDownSpeed = new System.Windows.Forms.NumericUpDown();
@@ -66,7 +68,6 @@
             this.gaugeVoltage = new GaugeControl.Gauge();
             this.gaugeFrequency = new GaugeControl.Gauge();
             this.gaugeSpeed = new GaugeControl.Gauge();
-            this.button1 = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox4.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -321,6 +322,16 @@
             this.groupBox5.TabStop = false;
             this.groupBox5.Text = "Gauges";
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(6, 390);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(140, 41);
+            this.button1.TabIndex = 5;
+            this.button1.Text = "Auto Connect";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // label2
             // 
             this.label2.AutoSize = true;
@@ -521,6 +532,25 @@
             0});
             this.gaugeVoltage.Size = new System.Drawing.Size(208, 206);
             this.gaugeVoltage.TabIndex = 6;
+            gaugeTickMarker1.BeginAngle = 110F;
+            gaugeTickMarker1.EndAngle = 430F;
+            gaugeTickMarker1.Height = 7F;
+            gaugeTickMarker1.IntervalAngle = 16F;
+            gaugeTickMarker1.markerColor = System.Drawing.Color.White;
+            gaugeTickMarker1.Name = "GaugeElement";
+            gaugeTickMarker1.OffsetX = new decimal(new int[] {
+            0,
+            0,
+            0,
+            0});
+            gaugeTickMarker1.OffsetY = new decimal(new int[] {
+            0,
+            0,
+            0,
+            0});
+            gaugeTickMarker1.Radius = 82F;
+            gaugeTickMarker1.Width = 2F;
+            this.gaugeVoltage.TickMarkers.Add(gaugeTickMarker1);
             this.gaugeVoltage.Value = new decimal(new int[] {
             0,
             0,
@@ -602,25 +632,25 @@
             0});
             this.gaugeFrequency.Size = new System.Drawing.Size(208, 206);
             this.gaugeFrequency.TabIndex = 10;
-            gaugeTickMarker1.BeginAngle = 120F;
-            gaugeTickMarker1.EndAngle = 420F;
-            gaugeTickMarker1.Height = 7F;
-            gaugeTickMarker1.IntervalAngle = 15F;
-            gaugeTickMarker1.markerColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
-            gaugeTickMarker1.Name = "GaugeTickMarker 0";
-            gaugeTickMarker1.OffsetX = new decimal(new int[] {
+            gaugeTickMarker2.BeginAngle = 120F;
+            gaugeTickMarker2.EndAngle = 420F;
+            gaugeTickMarker2.Height = 7F;
+            gaugeTickMarker2.IntervalAngle = 15F;
+            gaugeTickMarker2.markerColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
+            gaugeTickMarker2.Name = "GaugeTickMarker 0";
+            gaugeTickMarker2.OffsetX = new decimal(new int[] {
             0,
             0,
             0,
             0});
-            gaugeTickMarker1.OffsetY = new decimal(new int[] {
+            gaugeTickMarker2.OffsetY = new decimal(new int[] {
             0,
             0,
             0,
             0});
-            gaugeTickMarker1.Radius = 59F;
-            gaugeTickMarker1.Width = 2F;
-            this.gaugeFrequency.TickMarkers.Add(gaugeTickMarker1);
+            gaugeTickMarker2.Radius = 59F;
+            gaugeTickMarker2.Width = 2F;
+            this.gaugeFrequency.TickMarkers.Add(gaugeTickMarker2);
             this.gaugeFrequency.Value = new decimal(new int[] {
             0,
             0,
@@ -701,30 +731,12 @@
             0});
             this.gaugeSpeed.Size = new System.Drawing.Size(264, 260);
             this.gaugeSpeed.TabIndex = 14;
-            gaugeTickMarker2.BeginAngle = 140F;
-            gaugeTickMarker2.EndAngle = 400F;
-            gaugeTickMarker2.Height = 6F;
-            gaugeTickMarker2.IntervalAngle = 3.6F;
-            gaugeTickMarker2.markerColor = System.Drawing.Color.White;
-            gaugeTickMarker2.Name = "MinorTickMarker";
-            gaugeTickMarker2.OffsetX = new decimal(new int[] {
-            0,
-            0,
-            0,
-            0});
-            gaugeTickMarker2.OffsetY = new decimal(new int[] {
-            0,
-            0,
-            0,
-            0});
-            gaugeTickMarker2.Radius = 107F;
-            gaugeTickMarker2.Width = 2F;
             gaugeTickMarker3.BeginAngle = 140F;
             gaugeTickMarker3.EndAngle = 400F;
-            gaugeTickMarker3.Height = 8F;
-            gaugeTickMarker3.IntervalAngle = 18F;
+            gaugeTickMarker3.Height = 6F;
+            gaugeTickMarker3.IntervalAngle = 3.6F;
             gaugeTickMarker3.markerColor = System.Drawing.Color.White;
-            gaugeTickMarker3.Name = "MajorTickMarker";
+            gaugeTickMarker3.Name = "MinorTickMarker";
             gaugeTickMarker3.OffsetX = new decimal(new int[] {
             0,
             0,
@@ -736,24 +748,32 @@
             0,
             0});
             gaugeTickMarker3.Radius = 107F;
-            gaugeTickMarker3.Width = 3F;
-            this.gaugeSpeed.TickMarkers.Add(gaugeTickMarker2);
+            gaugeTickMarker3.Width = 2F;
+            gaugeTickMarker4.BeginAngle = 140F;
+            gaugeTickMarker4.EndAngle = 400F;
+            gaugeTickMarker4.Height = 8F;
+            gaugeTickMarker4.IntervalAngle = 18F;
+            gaugeTickMarker4.markerColor = System.Drawing.Color.White;
+            gaugeTickMarker4.Name = "MajorTickMarker";
+            gaugeTickMarker4.OffsetX = new decimal(new int[] {
+            0,
+            0,
+            0,
+            0});
+            gaugeTickMarker4.OffsetY = new decimal(new int[] {
+            0,
+            0,
+            0,
+            0});
+            gaugeTickMarker4.Radius = 107F;
+            gaugeTickMarker4.Width = 3F;
             this.gaugeSpeed.TickMarkers.Add(gaugeTickMarker3);
+            this.gaugeSpeed.TickMarkers.Add(gaugeTickMarker4);
             this.gaugeSpeed.Value = new decimal(new int[] {
             0,
             0,
             0,
             0});
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(6, 390);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(140, 41);
-            this.button1.TabIndex = 5;
-            this.button1.Text = "Auto Connect";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // GaugeSimulator
             // 

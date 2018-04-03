@@ -32,23 +32,7 @@ namespace EngineeringCompetitionTest
             /* Initialize these to empty values. */
             portPSP = new SerialPort();
             portMSSIM = new SerialPort();
-
-            //DiscoverDevicesOnCom();
-
-            /* TODO : Should exchange this part with designer generated code. */
-            /* Voltage gauge */
-
-            GaugeControl.GaugeTickMarker marker = new GaugeControl.GaugeTickMarker(gaugeVoltage.ArcRadius);
-
-            marker.BeginAngle = gaugeVoltage.ArcStartAngle;
-            marker.EndAngle = gaugeVoltage.ArcEndAngle;
-            marker.Width = 2;
-            marker.Height = 7;
-            marker.markerColor = Color.White;
-            marker.IntervalAngle = gaugeVoltage.NumberMarkerAngleInterval / 2;
-            gaugeVoltage.AddMarker(marker);
             
-
             /* RPM gauge */
 
             GaugeControl.GaugeTickMarker rpm_marker = new GaugeControl.GaugeTickMarker(gaugeRPM.ArcRadius + 8);
