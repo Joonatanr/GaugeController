@@ -12,14 +12,8 @@ namespace EngineeringCompetitionTest
 {
     public partial class UserControlLamp : UserControl
     {
-        public enum LampColorEnum
-        {
-            Green,
-            Amber,
-            Red
-        }
 
-        public LampColorEnum LampColor { get; set; } = LampColorEnum.Red;
+        public Color LampColor { get; set; } = Color.Red;
 
         private Boolean m_value = false;
         public Boolean Value
@@ -63,40 +57,15 @@ namespace EngineeringCompetitionTest
 
         private Color getDisplayedColor()
         {
-            switch (LampColor)
+            if (m_value)
             {
-                case (LampColorEnum.Green):
-                    if (m_value)
-                    {
-                        //return Color.LightGreen;
-                        return ControlPaint.Light(Color.Green);
-                    }
-                    else
-                    {
-                        //return Color.DarkGreen;
-                        return ControlPaint.Dark(Color.Green);
-                    }
-                case (LampColorEnum.Amber):
-                    if (m_value)
-                    {
-                        return ControlPaint.Light(Color.Yellow);
-                    }
-                    else
-                    {
-                        return ControlPaint.Dark(Color.Yellow);
-                    }
-                case (LampColorEnum.Red):
-                    if (m_value)
-                    {
-                        return ControlPaint.Light(Color.Red);
-                    }
-                    else
-                    {
-                        return ControlPaint.Dark(Color.Red);
-                    }
-                default:
-                    /* Should not happen */
-                    return Color.Purple;
+                //return Color.LightGreen;
+                return ControlPaint.Light(LampColor);
+            }
+            else
+            {
+                //return Color.DarkGreen;
+                return ControlPaint.Dark(LampColor);
             }
         }
     }

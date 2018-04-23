@@ -386,7 +386,7 @@
             // 
             // greenLamp
             // 
-            this.greenLamp.LampColor = EngineeringCompetitionTest.UserControlLamp.LampColorEnum.Green;
+            this.greenLamp.LampColor = System.Drawing.Color.Green;
             this.greenLamp.Location = new System.Drawing.Point(90, 327);
             this.greenLamp.Name = "greenLamp";
             this.greenLamp.Size = new System.Drawing.Size(25, 25);
@@ -395,7 +395,7 @@
             // 
             // RedLamp
             // 
-            this.RedLamp.LampColor = EngineeringCompetitionTest.UserControlLamp.LampColorEnum.Red;
+            this.RedLamp.LampColor = System.Drawing.Color.Red;
             this.RedLamp.Location = new System.Drawing.Point(153, 327);
             this.RedLamp.Name = "RedLamp";
             this.RedLamp.Size = new System.Drawing.Size(25, 25);
@@ -404,7 +404,7 @@
             // 
             // AmberLamp
             // 
-            this.AmberLamp.LampColor = EngineeringCompetitionTest.UserControlLamp.LampColorEnum.Amber;
+            this.AmberLamp.LampColor = System.Drawing.Color.Yellow;
             this.AmberLamp.Location = new System.Drawing.Point(121, 327);
             this.AmberLamp.Name = "AmberLamp";
             this.AmberLamp.Size = new System.Drawing.Size(25, 25);
