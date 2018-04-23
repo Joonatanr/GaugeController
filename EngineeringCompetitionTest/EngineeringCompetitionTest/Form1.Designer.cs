@@ -64,6 +64,9 @@
             this.label1 = new System.Windows.Forms.Label();
             this.numericUpDownSpeed = new System.Windows.Forms.NumericUpDown();
             this.numericUpDownRPM = new System.Windows.Forms.NumericUpDown();
+            this.greenLamp = new EngineeringCompetitionTest.UserControlLamp();
+            this.RedLamp = new EngineeringCompetitionTest.UserControlLamp();
+            this.AmberLamp = new EngineeringCompetitionTest.UserControlLamp();
             this.gaugeRPM = new GaugeControl.Gauge();
             this.gaugeVoltage = new GaugeControl.Gauge();
             this.gaugeFrequency = new GaugeControl.Gauge();
@@ -301,6 +304,9 @@
             // 
             // groupBox5
             // 
+            this.groupBox5.Controls.Add(this.greenLamp);
+            this.groupBox5.Controls.Add(this.RedLamp);
+            this.groupBox5.Controls.Add(this.AmberLamp);
             this.groupBox5.Controls.Add(this.button1);
             this.groupBox5.Controls.Add(this.label2);
             this.groupBox5.Controls.Add(this.label1);
@@ -377,6 +383,33 @@
             this.numericUpDownRPM.Size = new System.Drawing.Size(120, 22);
             this.numericUpDownRPM.TabIndex = 15;
             this.numericUpDownRPM.ValueChanged += new System.EventHandler(this.numericUpDownRPM_ValueChanged);
+            // 
+            // greenLamp
+            // 
+            this.greenLamp.LampColor = EngineeringCompetitionTest.UserControlLamp.LampColorEnum.Green;
+            this.greenLamp.Location = new System.Drawing.Point(90, 327);
+            this.greenLamp.Name = "greenLamp";
+            this.greenLamp.Size = new System.Drawing.Size(25, 25);
+            this.greenLamp.TabIndex = 21;
+            this.greenLamp.Value = false;
+            // 
+            // RedLamp
+            // 
+            this.RedLamp.LampColor = EngineeringCompetitionTest.UserControlLamp.LampColorEnum.Red;
+            this.RedLamp.Location = new System.Drawing.Point(153, 327);
+            this.RedLamp.Name = "RedLamp";
+            this.RedLamp.Size = new System.Drawing.Size(25, 25);
+            this.RedLamp.TabIndex = 20;
+            this.RedLamp.Value = false;
+            // 
+            // AmberLamp
+            // 
+            this.AmberLamp.LampColor = EngineeringCompetitionTest.UserControlLamp.LampColorEnum.Amber;
+            this.AmberLamp.Location = new System.Drawing.Point(121, 327);
+            this.AmberLamp.Name = "AmberLamp";
+            this.AmberLamp.Size = new System.Drawing.Size(25, 25);
+            this.AmberLamp.TabIndex = 19;
+            this.AmberLamp.Value = false;
             // 
             // gaugeRPM
             // 
@@ -839,6 +872,9 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button button1;
+        private UserControlLamp greenLamp;
+        private UserControlLamp RedLamp;
+        private UserControlLamp AmberLamp;
     }
 }
 

@@ -360,6 +360,25 @@ namespace EngineeringCompetitionTest
                 numericUpDownVoltage.Value = voltage;
             }
 
+            if (rpm_value >= 3000)
+            {
+                RedLamp.Value = true;
+                AmberLamp.Value = false;
+                greenLamp.Value = false;
+            }
+            else if(rpm_value >= 2500)
+            {
+                RedLamp.Value = false;
+                AmberLamp.Value = true;
+                greenLamp.Value = false;
+            }
+            else
+            {
+                RedLamp.Value = false;
+                AmberLamp.Value = false;
+                greenLamp.Value = true; //This is not actually in the solution, just want to test green lamp-
+            }
+
             sendVoltageCommand(voltage);
         }
 
