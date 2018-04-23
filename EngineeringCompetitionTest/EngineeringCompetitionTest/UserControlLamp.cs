@@ -40,9 +40,10 @@ namespace EngineeringCompetitionTest
             //Do I need to call this?
             base.OnPaint(e);
 
-            Rectangle rect = new Rectangle(new Point(0, 0), new Size(this.Height - 1, this.Width - 1));
+            Rectangle rect = new Rectangle(new Point(1, 1), new Size(this.Height - 4, this.Width - 4));
 
             Graphics gfx = e.Graphics;
+            gfx.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
 
             Pen myPen = new Pen(Color.Black);
             myPen.Width = 2;
