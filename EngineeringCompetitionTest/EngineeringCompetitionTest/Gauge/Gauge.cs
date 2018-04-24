@@ -25,12 +25,7 @@ namespace GaugeControl
         protected List<GaugeMarker> m_markerList = new List<GaugeMarker>();
         protected Dictionary<string, GaugeNeedle> customNeedleDictionary = new Dictionary<string, GaugeNeedle>();
 
-        /* Main needle properties... */
-        private Size        m_needleSize =                  new Size(4,66);
-        private Color       m_needleColor =                 Color.Red;
-        private float       m_needleCenterRadius =          10;
-        private Color       m_needleCenterColor =           Color.Chocolate;
-
+        private SimpleGaugeNeedle m_simpleNeedle = new SimpleGaugeNeedle(Color.Red, new Size(4,66), Color.Chocolate, 10);
 
         private Boolean     m_isArcEnabled =                true;
         private int         m_arcWidth =                    3;
@@ -410,10 +405,10 @@ namespace GaugeControl
         Description("Simple needle size")]
         public Size NeedleSize
         {
-            get { return m_needleSize; }
+            get { return m_simpleNeedle.needleSize; }
             set 
             { 
-                m_needleSize = value;
+                m_simpleNeedle.needleSize = value;
                 UpdateNeedleBitmap();
             }
         }
@@ -423,10 +418,10 @@ namespace GaugeControl
         Description("Simple needle color")]
         public Color NeedleColor
         {
-            get { return m_needleColor; }
+            get { return m_simpleNeedle.NeedleColor; }
             set 
             { 
-                m_needleColor = value;
+                m_simpleNeedle.NeedleColor = value;
                 UpdateNeedleBitmap();
             }
         }
@@ -436,10 +431,10 @@ namespace GaugeControl
         Description("Simple needle center radius")]
         public float NeedleCenterRadius
         {
-            get { return m_needleCenterRadius; }
+            get { return m_simpleNeedle.CenterRadius; }
             set 
             { 
-                m_needleCenterRadius = value;
+                m_simpleNeedle.CenterRadius = value;
                 UpdateNeedleBitmap();
             }
         }
@@ -449,10 +444,10 @@ namespace GaugeControl
         Description("Simple needle center color")]
         public Color NeedleCenterColor
         {
-            get { return m_needleCenterColor; }
+            get { return m_simpleNeedle.CenterColor; }
             set 
             { 
-                m_needleCenterColor = value;
+                m_simpleNeedle.CenterColor = value;
                 UpdateNeedleBitmap();
             }
         }
@@ -597,12 +592,9 @@ namespace GaugeControl
 
         private void UpdateNeedleBitmap()
         {
-            if (!m_isCustomNeedleEnabled)
+            if (m_needleBitMap != null && m_isCustomNeedleEnabled)
             {
-                mainNeedle = new SimpleGaugeNeedle(m_needleColor, m_needleSize, m_needleCenterColor, m_needleCenterRadius);
-            }
-            else if (m_needleBitMap != null)
-            {
+                /* We use bitmap needle.*/
                 int ResizedWidth = (int)(m_needleBitMap.Width * (ResizeScale / 100));
                 int ResizedHeight = (int)(m_needleBitMap.Height * (ResizeScale / 100));
 
@@ -615,8 +607,8 @@ namespace GaugeControl
             }
             else
             {
-                //Init with default values.
-                mainNeedle = new SimpleGaugeNeedle();
+                /* We use the default needle. */
+                mainNeedle = m_simpleNeedle;
             }
             Refresh();
         }
