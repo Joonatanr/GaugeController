@@ -11,7 +11,7 @@ namespace GaugeControl
     public class GaugeBorder : GaugeElement
     {
         public Color        BorderColor = Color.Black;
-        public float        BorderWidth = 2;
+        public float        BorderWidth = 4;
         public float        BorderRadius = 10;
 
         public GaugeBorder()

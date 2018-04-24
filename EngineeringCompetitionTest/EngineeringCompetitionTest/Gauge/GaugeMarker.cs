@@ -169,12 +169,12 @@ namespace GaugeControl
             this.Radius = radius;
             
             /* Initiate to default values */
-            m_beginAngle = 0;
+            m_beginAngle = 180;
             m_endAngle = 360;
-            this.Height = 10;
-            this.Width = 10;
-            this.IntervalAngle = 10;
-            this.markerColor = Color.White;
+            Height = 10;
+            Width = 10;
+            IntervalAngle = 18;
+            markerColor = Color.White;
 
             /* Initialize string format to default values. */
             m_format = new StringFormat();

@@ -33,14 +33,14 @@ namespace GaugeControl
         /* TODO : Should make arc a gaugeelement. */
         protected Boolean     m_isArcEnabled =                true;
         protected int         m_arcWidth =                    3;
-        protected float       m_arcStartAngle =               120f;
-        protected float       m_arcEndAngle =                 400f;
-        protected float       m_arcRadius =                   80;
+        protected float       m_arcStartAngle =               180f;
+        protected float       m_arcEndAngle =                 360f;
+        protected float       m_arcRadius =                   70;
         protected Color       m_arcColor =                    Color.White;
         
 
         /* Main number markers are bound to the arc radius with this variable. */
-        protected int         m_NumberMarkerOffset =         -18;
+        protected int         m_NumberMarkerOffset =          15;
 
         protected Boolean     m_isBackGroundEllipseEnabled =  true;
         protected Color       m_backGroundEllipseColor =      Color.Black;
@@ -260,6 +260,7 @@ namespace GaugeControl
             set
             {
                 m_NumberMarkerOffset = value;
+                mainNumberMarker.Radius = m_arcRadius + m_NumberMarkerOffset;
                 drawGaugeBackground = true;
                 Invalidate();
             }
@@ -551,13 +552,16 @@ namespace GaugeControl
             m_Border = new GaugeBorder();
             m_Border.BorderRadius = m_backGroundEllipseRadius;
 
-            UpdateNeedleBitmap();
+            mainNumberMarker = new GaugeNumberMarker(m_arcRadius + m_NumberMarkerOffset);
 
-            mainNumberMarker = new GaugeNumberMarker(20);
+            UpdateNeedleBitmap();
 
             /* This is under test. */
             m_TickMarkerCollection = new CustomCollection<GaugeTickMarker>(new ItemAddedEventHandler(UpdateBackGround));
             m_CustomTextCollection = new CustomCollection<GaugeLabel>(new ItemAddedEventHandler(UpdateBackGround));
+
+            /* Set size to default values. */
+            this.Size = new Size(220, 220);
         }
 
         /* Can be overwritten, called from property change. */
