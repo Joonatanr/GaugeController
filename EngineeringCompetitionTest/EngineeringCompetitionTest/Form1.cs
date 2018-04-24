@@ -68,6 +68,9 @@ namespace EngineeringCompetitionTest
         private void DiscoverDevicesOnCom()
         {
             String [] names = SerialPort.GetPortNames();
+            comboBoxMSSIM2Port.DataSource = names.Clone();
+            comboBoxPSPPortSelect.DataSource = names.Clone();
+
             Boolean isPSPFound = false;
             Boolean isMSSIMFound = false;
 
@@ -110,6 +113,22 @@ namespace EngineeringCompetitionTest
                         isMSSIMFound = true;
                     }
                 }
+            }
+            try
+            {
+                if (isMSSIMFound)
+                {
+                    comboBoxMSSIM2Port.SelectedIndex = comboBoxMSSIM2Port.Items.IndexOf(portMSSIM.PortName);
+                }
+
+                if (isPSPFound)
+                {
+                    comboBoxPSPPortSelect.SelectedIndex = comboBoxPSPPortSelect.Items.IndexOf(portPSP.PortName);
+                }
+            }
+            catch (Exception)
+            {
+                printLine("Failed to set comboboxes, something went wrong");
             }
         }
 
@@ -447,6 +466,7 @@ namespace EngineeringCompetitionTest
         private void ScriptComplete()
         {
             this.Invoke(new Action<bool>(SetNumericButtons), new object[] { true });
+            this.Invoke(new Action<string>(printLine), new object[] { "Script complete..." });
         }
 
         private void SetNumericButtons(bool mode)
