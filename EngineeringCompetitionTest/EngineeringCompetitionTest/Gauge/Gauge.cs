@@ -670,6 +670,10 @@ namespace GaugeControl
 
                 drawBackGround(ggr);
                 drawGaugeBackground = false;
+
+                /* The numeric scale might have changed. */
+                Decimal val = Value;
+                SetValue(val);
             }
             
             pe.Graphics.SmoothingMode = SmoothingMode.AntiAlias;
