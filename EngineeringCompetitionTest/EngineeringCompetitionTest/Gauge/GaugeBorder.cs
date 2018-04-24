@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace GaugeControl
 {
-    class GaugeBorder : GaugeElement
+    public class GaugeBorder : GaugeElement
     {
         public Color        BorderColor = Color.Black;
         public float        BorderWidth = 2;

@@ -15,42 +15,47 @@ namespace GaugeControl
 {
     public class Gauge : UserControl
     {
-        private Boolean     drawGaugeBackground = true;
-        private float       m_angle = 0.0f;
-        private Decimal     m_value = 0;
-        private Bitmap      gaugeBitmap;
+        /* private variables */
+        private Boolean       drawGaugeBackground = true;
+        private Boolean       isGridEnabled = false;
 
-        protected PointF    CenterPoint;
+        /* protected variables */
+        protected float       m_angle = 0.0f;
+        protected Decimal     m_value = 0;
+        protected Bitmap      gaugeBitmap;
+        protected PointF      CenterPoint;
  
         protected List<GaugeMarker> m_markerList = new List<GaugeMarker>();
         protected Dictionary<string, GaugeNeedle> customNeedleDictionary = new Dictionary<string, GaugeNeedle>();
 
-        private SimpleGaugeNeedle m_simpleNeedle = new SimpleGaugeNeedle(Color.Red, new Size(4,66), Color.Chocolate, 10);
+        protected SimpleGaugeNeedle m_simpleNeedle = new SimpleGaugeNeedle(Color.Red, new Size(4,66), Color.Chocolate, 10);
 
-        private Boolean     m_isArcEnabled =                true;
-        private int         m_arcWidth =                    3;
-        private float       m_arcStartAngle =               120f;
-        private float       m_arcEndAngle =                 400f;
-        private float       m_arcRadius =                   80;
-        private Color       m_arcColor =                    Color.White;
+        /* TODO : Should make arc a gaugeelement. */
+        protected Boolean     m_isArcEnabled =                true;
+        protected int         m_arcWidth =                    3;
+        protected float       m_arcStartAngle =               120f;
+        protected float       m_arcEndAngle =                 400f;
+        protected float       m_arcRadius =                   80;
+        protected Color       m_arcColor =                    Color.White;
         
+
         /* Main number markers are bound to the arc radius with this variable. */
-        private int         m_NumberMarkerOffset =         -18;
+        protected int         m_NumberMarkerOffset =         -18;
 
-        private Boolean     m_isBackGroundEllipseEnabled =  true;
-        private Color       m_backGroundEllipseColor =      Color.Black;
-        private float       m_backGroundEllipseRadius =     90;
+        protected Boolean     m_isBackGroundEllipseEnabled =  true;
+        protected Color       m_backGroundEllipseColor =      Color.Black;
+        protected float       m_backGroundEllipseRadius =     90;
 
-        private GaugeBorder m_Border;
-        private Boolean     m_isBorderEnabled =             true;
-        private Boolean     m_isCustomNeedleEnabled =       false; /* Enabled needle from bitmap. */
+        protected GaugeBorder m_Border;
+        protected Boolean     m_isBorderEnabled =             true;
+        protected Boolean     m_isCustomNeedleEnabled =       false; /* Enabled needle from bitmap. */
 
-        private Bitmap      m_needleBitMap;
-        private Bitmap      ResizedNeedleBitMap;
-        private float       ResizeScale = 70; /* Really should review this. */
-        private PointF      NeedleCenterPoint = new PointF(20f, 40f);
-        private Boolean     isGridEnabled = false;
-
+        protected Bitmap      m_needleBitMap;
+        protected Bitmap      ResizedNeedleBitMap;
+        protected float       ResizeScale = 70; /* Really should review this. */
+        protected PointF      NeedleCenterPoint = new PointF(20f, 40f);
+        
+        /* public variables. */
         public GaugeNeedle mainNeedle;
         public GaugeNumberMarker mainNumberMarker;
 
@@ -490,16 +495,7 @@ namespace GaugeControl
             get { return m_value; }
             set
             {
-                Decimal begin = mainNumberMarker.ValueBegin;
-
-                /* We don't check for value constraints because gauge might have areas where there are no numbers. */
-                /* TODO : Should still define purely logical max and min value.*/
-
-                m_value = value;
-                float angle_per_value = mainNumberMarker.IntervalAngle / (float)mainNumberMarker.ValueInterval;
-                Decimal relative_value = m_value - begin;
-
-                SetAngle((angle_per_value * (float)relative_value) + mainNumberMarker.BeginAngle);
+                SetValue(value);
             }
         }
 
@@ -536,6 +532,9 @@ namespace GaugeControl
             get { return m_CustomTextCollection; }
         }
 
+        /* TODO : Add collections for number markers and also custom needles. */
+
+
         /*********************************************************************************/
 
         #endregion
@@ -559,6 +558,21 @@ namespace GaugeControl
             /* This is under test. */
             m_TickMarkerCollection = new CustomCollection<GaugeTickMarker>(new ItemAddedEventHandler(UpdateBackGround));
             m_CustomTextCollection = new CustomCollection<GaugeLabel>(new ItemAddedEventHandler(UpdateBackGround));
+        }
+
+        /* Can be overwritten, called from property change. */
+        public void SetValue(Decimal value)
+        {
+            Decimal begin = mainNumberMarker.ValueBegin;
+
+            /* We don't check for value constraints because gauge might have areas where there are no numbers. */
+            /* TODO : Should still define purely logical max and min value.*/
+
+            m_value = value;
+            float angle_per_value = mainNumberMarker.IntervalAngle / (float)mainNumberMarker.ValueInterval;
+            Decimal relative_value = m_value - begin;
+
+            SetAngle((angle_per_value * (float)relative_value) + mainNumberMarker.BeginAngle);
         }
 
         public void AddMarker(GaugeMarker m)
@@ -595,6 +609,7 @@ namespace GaugeControl
             if (m_needleBitMap != null && m_isCustomNeedleEnabled)
             {
                 /* We use bitmap needle.*/
+                /* TODO : This probably no longer works and should be reviewed. */
                 int ResizedWidth = (int)(m_needleBitMap.Width * (ResizeScale / 100));
                 int ResizedHeight = (int)(m_needleBitMap.Height * (ResizeScale / 100));
 
