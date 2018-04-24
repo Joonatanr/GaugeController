@@ -423,9 +423,10 @@ namespace EngineeringCompetitionTest
                 int numberOfPoints = myScriptReader.ReadMeasurementsFromFile();
                 printLine("Read :" + numberOfPoints + " points");
             }
-            catch (NullReferenceException)
+            catch (Exception ex)
             {
                 printLine("Failed to read measurement points from file");
+                printLine("Exception" + ex.Message);
                 return;
             }
 

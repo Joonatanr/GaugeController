@@ -33,6 +33,8 @@ namespace EngineeringCompetitionTest
         public UserControlLamp()
         {
             InitializeComponent();
+
+            this.DoubleBuffered = true;
         }
 
         protected override void OnPaint(PaintEventArgs e)

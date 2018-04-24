@@ -29,14 +29,14 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(GaugeSimulator));
-            GaugeControl.GaugeLabel gaugeLabel5 = new GaugeControl.GaugeLabel();
-            GaugeControl.GaugeLabel gaugeLabel6 = new GaugeControl.GaugeLabel();
-            GaugeControl.GaugeTickMarker gaugeTickMarker5 = new GaugeControl.GaugeTickMarker();
-            GaugeControl.GaugeLabel gaugeLabel7 = new GaugeControl.GaugeLabel();
-            GaugeControl.GaugeTickMarker gaugeTickMarker6 = new GaugeControl.GaugeTickMarker();
-            GaugeControl.GaugeLabel gaugeLabel8 = new GaugeControl.GaugeLabel();
-            GaugeControl.GaugeTickMarker gaugeTickMarker7 = new GaugeControl.GaugeTickMarker();
-            GaugeControl.GaugeTickMarker gaugeTickMarker8 = new GaugeControl.GaugeTickMarker();
+            GaugeControl.GaugeLabel gaugeLabel1 = new GaugeControl.GaugeLabel();
+            GaugeControl.GaugeLabel gaugeLabel2 = new GaugeControl.GaugeLabel();
+            GaugeControl.GaugeTickMarker gaugeTickMarker1 = new GaugeControl.GaugeTickMarker();
+            GaugeControl.GaugeLabel gaugeLabel3 = new GaugeControl.GaugeLabel();
+            GaugeControl.GaugeTickMarker gaugeTickMarker2 = new GaugeControl.GaugeTickMarker();
+            GaugeControl.GaugeLabel gaugeLabel4 = new GaugeControl.GaugeLabel();
+            GaugeControl.GaugeTickMarker gaugeTickMarker3 = new GaugeControl.GaugeTickMarker();
+            GaugeControl.GaugeTickMarker gaugeTickMarker4 = new GaugeControl.GaugeTickMarker();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.comboBoxPSPPortSelect = new System.Windows.Forms.ComboBox();
@@ -59,14 +59,14 @@
             this.label8 = new System.Windows.Forms.Label();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
+            this.greenLamp = new EngineeringCompetitionTest.UserControlLamp();
+            this.RedLamp = new EngineeringCompetitionTest.UserControlLamp();
+            this.AmberLamp = new EngineeringCompetitionTest.UserControlLamp();
             this.button1 = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.numericUpDownSpeed = new System.Windows.Forms.NumericUpDown();
             this.numericUpDownRPM = new System.Windows.Forms.NumericUpDown();
-            this.greenLamp = new EngineeringCompetitionTest.UserControlLamp();
-            this.RedLamp = new EngineeringCompetitionTest.UserControlLamp();
-            this.AmberLamp = new EngineeringCompetitionTest.UserControlLamp();
             this.gaugeRPM = new GaugeControl.Gauge();
             this.gaugeVoltage = new GaugeControl.Gauge();
             this.gaugeFrequency = new GaugeControl.Gauge();
@@ -328,6 +328,33 @@
             this.groupBox5.TabStop = false;
             this.groupBox5.Text = "Gauges";
             // 
+            // greenLamp
+            // 
+            this.greenLamp.LampColor = System.Drawing.Color.Green;
+            this.greenLamp.Location = new System.Drawing.Point(59, 327);
+            this.greenLamp.Name = "greenLamp";
+            this.greenLamp.Size = new System.Drawing.Size(30, 30);
+            this.greenLamp.TabIndex = 21;
+            this.greenLamp.Value = true;
+            // 
+            // RedLamp
+            // 
+            this.RedLamp.LampColor = System.Drawing.Color.Red;
+            this.RedLamp.Location = new System.Drawing.Point(131, 327);
+            this.RedLamp.Name = "RedLamp";
+            this.RedLamp.Size = new System.Drawing.Size(30, 30);
+            this.RedLamp.TabIndex = 20;
+            this.RedLamp.Value = false;
+            // 
+            // AmberLamp
+            // 
+            this.AmberLamp.LampColor = System.Drawing.Color.DarkOrange;
+            this.AmberLamp.Location = new System.Drawing.Point(95, 327);
+            this.AmberLamp.Name = "AmberLamp";
+            this.AmberLamp.Size = new System.Drawing.Size(30, 30);
+            this.AmberLamp.TabIndex = 19;
+            this.AmberLamp.Value = false;
+            // 
             // button1
             // 
             this.button1.Location = new System.Drawing.Point(6, 390);
@@ -384,33 +411,6 @@
             this.numericUpDownRPM.TabIndex = 15;
             this.numericUpDownRPM.ValueChanged += new System.EventHandler(this.numericUpDownRPM_ValueChanged);
             // 
-            // greenLamp
-            // 
-            this.greenLamp.LampColor = System.Drawing.Color.Green;
-            this.greenLamp.Location = new System.Drawing.Point(59, 327);
-            this.greenLamp.Name = "greenLamp";
-            this.greenLamp.Size = new System.Drawing.Size(30, 30);
-            this.greenLamp.TabIndex = 21;
-            this.greenLamp.Value = false;
-            // 
-            // RedLamp
-            // 
-            this.RedLamp.LampColor = System.Drawing.Color.Red;
-            this.RedLamp.Location = new System.Drawing.Point(131, 327);
-            this.RedLamp.Name = "RedLamp";
-            this.RedLamp.Size = new System.Drawing.Size(30, 30);
-            this.RedLamp.TabIndex = 20;
-            this.RedLamp.Value = false;
-            // 
-            // AmberLamp
-            // 
-            this.AmberLamp.LampColor = System.Drawing.Color.DarkOrange;
-            this.AmberLamp.Location = new System.Drawing.Point(95, 327);
-            this.AmberLamp.Name = "AmberLamp";
-            this.AmberLamp.Size = new System.Drawing.Size(30, 30);
-            this.AmberLamp.TabIndex = 19;
-            this.AmberLamp.Value = false;
-            // 
             // gaugeRPM
             // 
             this.gaugeRPM.ArcColor = System.Drawing.Color.White;
@@ -425,21 +425,21 @@
             this.gaugeRPM.BorderWidth = 7F;
             this.gaugeRPM.isArcEnabled = true;
             this.gaugeRPM.isCustomNeedleEnabled = false;
-            gaugeLabel5.Name = "GaugeLabel 0";
-            gaugeLabel5.OffsetX = new decimal(new int[] {
+            gaugeLabel1.Name = "GaugeLabel 0";
+            gaugeLabel1.OffsetX = new decimal(new int[] {
             0,
             0,
             0,
             0});
-            gaugeLabel5.OffsetY = new decimal(new int[] {
+            gaugeLabel1.OffsetY = new decimal(new int[] {
             24,
             0,
             0,
             0});
-            gaugeLabel5.Text = "RPM";
-            gaugeLabel5.TextColor = System.Drawing.Color.White;
-            gaugeLabel5.TextFont = new System.Drawing.Font("Arial", 12F);
-            this.gaugeRPM.Labels.Add(gaugeLabel5);
+            gaugeLabel1.Text = "RPM";
+            gaugeLabel1.TextColor = System.Drawing.Color.White;
+            gaugeLabel1.TextFont = new System.Drawing.Font("Arial", 12F);
+            this.gaugeRPM.Labels.Add(gaugeLabel1);
             this.gaugeRPM.Location = new System.Drawing.Point(20, 21);
             this.gaugeRPM.MaxValue = new decimal(new int[] {
             1000,
@@ -505,21 +505,21 @@
             this.gaugeVoltage.BorderWidth = 8F;
             this.gaugeVoltage.isArcEnabled = true;
             this.gaugeVoltage.isCustomNeedleEnabled = false;
-            gaugeLabel6.Name = "GaugeElement";
-            gaugeLabel6.OffsetX = new decimal(new int[] {
+            gaugeLabel2.Name = "GaugeElement";
+            gaugeLabel2.OffsetX = new decimal(new int[] {
             0,
             0,
             0,
             0});
-            gaugeLabel6.OffsetY = new decimal(new int[] {
+            gaugeLabel2.OffsetY = new decimal(new int[] {
             18,
             0,
             0,
             0});
-            gaugeLabel6.Text = "V-DC";
-            gaugeLabel6.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
-            gaugeLabel6.TextFont = new System.Drawing.Font("Arial", 10F);
-            this.gaugeVoltage.Labels.Add(gaugeLabel6);
+            gaugeLabel2.Text = "V-DC";
+            gaugeLabel2.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
+            gaugeLabel2.TextFont = new System.Drawing.Font("Arial", 10F);
+            this.gaugeVoltage.Labels.Add(gaugeLabel2);
             this.gaugeVoltage.Location = new System.Drawing.Point(250, 180);
             this.gaugeVoltage.MaxValue = new decimal(new int[] {
             1000,
@@ -565,25 +565,25 @@
             0});
             this.gaugeVoltage.Size = new System.Drawing.Size(208, 206);
             this.gaugeVoltage.TabIndex = 6;
-            gaugeTickMarker5.BeginAngle = 110F;
-            gaugeTickMarker5.EndAngle = 430F;
-            gaugeTickMarker5.Height = 7F;
-            gaugeTickMarker5.IntervalAngle = 16F;
-            gaugeTickMarker5.markerColor = System.Drawing.Color.White;
-            gaugeTickMarker5.Name = "GaugeElement";
-            gaugeTickMarker5.OffsetX = new decimal(new int[] {
+            gaugeTickMarker1.BeginAngle = 110F;
+            gaugeTickMarker1.EndAngle = 430F;
+            gaugeTickMarker1.Height = 7F;
+            gaugeTickMarker1.IntervalAngle = 16F;
+            gaugeTickMarker1.markerColor = System.Drawing.Color.White;
+            gaugeTickMarker1.Name = "GaugeElement";
+            gaugeTickMarker1.OffsetX = new decimal(new int[] {
             0,
             0,
             0,
             0});
-            gaugeTickMarker5.OffsetY = new decimal(new int[] {
+            gaugeTickMarker1.OffsetY = new decimal(new int[] {
             0,
             0,
             0,
             0});
-            gaugeTickMarker5.Radius = 82F;
-            gaugeTickMarker5.Width = 2F;
-            this.gaugeVoltage.TickMarkers.Add(gaugeTickMarker5);
+            gaugeTickMarker1.Radius = 82F;
+            gaugeTickMarker1.Width = 2F;
+            this.gaugeVoltage.TickMarkers.Add(gaugeTickMarker1);
             this.gaugeVoltage.Value = new decimal(new int[] {
             0,
             0,
@@ -605,21 +605,21 @@
             this.gaugeFrequency.BorderWidth = 8F;
             this.gaugeFrequency.isArcEnabled = true;
             this.gaugeFrequency.isCustomNeedleEnabled = false;
-            gaugeLabel7.Name = "GaugeElement";
-            gaugeLabel7.OffsetX = new decimal(new int[] {
+            gaugeLabel3.Name = "GaugeElement";
+            gaugeLabel3.OffsetX = new decimal(new int[] {
             0,
             0,
             0,
             0});
-            gaugeLabel7.OffsetY = new decimal(new int[] {
+            gaugeLabel3.OffsetY = new decimal(new int[] {
             16,
             0,
             0,
             0});
-            gaugeLabel7.Text = "Hz";
-            gaugeLabel7.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
-            gaugeLabel7.TextFont = new System.Drawing.Font("Arial", 10F);
-            this.gaugeFrequency.Labels.Add(gaugeLabel7);
+            gaugeLabel3.Text = "Hz";
+            gaugeLabel3.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
+            gaugeLabel3.TextFont = new System.Drawing.Font("Arial", 10F);
+            this.gaugeFrequency.Labels.Add(gaugeLabel3);
             this.gaugeFrequency.Location = new System.Drawing.Point(610, 180);
             this.gaugeFrequency.MaxValue = new decimal(new int[] {
             1000,
@@ -665,25 +665,25 @@
             0});
             this.gaugeFrequency.Size = new System.Drawing.Size(208, 206);
             this.gaugeFrequency.TabIndex = 10;
-            gaugeTickMarker6.BeginAngle = 120F;
-            gaugeTickMarker6.EndAngle = 420F;
-            gaugeTickMarker6.Height = 7F;
-            gaugeTickMarker6.IntervalAngle = 15F;
-            gaugeTickMarker6.markerColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
-            gaugeTickMarker6.Name = "GaugeTickMarker 0";
-            gaugeTickMarker6.OffsetX = new decimal(new int[] {
+            gaugeTickMarker2.BeginAngle = 120F;
+            gaugeTickMarker2.EndAngle = 420F;
+            gaugeTickMarker2.Height = 7F;
+            gaugeTickMarker2.IntervalAngle = 15F;
+            gaugeTickMarker2.markerColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
+            gaugeTickMarker2.Name = "GaugeTickMarker 0";
+            gaugeTickMarker2.OffsetX = new decimal(new int[] {
             0,
             0,
             0,
             0});
-            gaugeTickMarker6.OffsetY = new decimal(new int[] {
+            gaugeTickMarker2.OffsetY = new decimal(new int[] {
             0,
             0,
             0,
             0});
-            gaugeTickMarker6.Radius = 59F;
-            gaugeTickMarker6.Width = 2F;
-            this.gaugeFrequency.TickMarkers.Add(gaugeTickMarker6);
+            gaugeTickMarker2.Radius = 59F;
+            gaugeTickMarker2.Width = 2F;
+            this.gaugeFrequency.TickMarkers.Add(gaugeTickMarker2);
             this.gaugeFrequency.Value = new decimal(new int[] {
             0,
             0,
@@ -704,21 +704,21 @@
             this.gaugeSpeed.BorderWidth = 7F;
             this.gaugeSpeed.isArcEnabled = true;
             this.gaugeSpeed.isCustomNeedleEnabled = false;
-            gaugeLabel8.Name = "GaugeLabel 0";
-            gaugeLabel8.OffsetX = new decimal(new int[] {
+            gaugeLabel4.Name = "GaugeLabel 0";
+            gaugeLabel4.OffsetX = new decimal(new int[] {
             0,
             0,
             0,
             0});
-            gaugeLabel8.OffsetY = new decimal(new int[] {
+            gaugeLabel4.OffsetY = new decimal(new int[] {
             25,
             0,
             0,
             0});
-            gaugeLabel8.Text = "km/h";
-            gaugeLabel8.TextColor = System.Drawing.Color.White;
-            gaugeLabel8.TextFont = new System.Drawing.Font("Arial", 12F);
-            this.gaugeSpeed.Labels.Add(gaugeLabel8);
+            gaugeLabel4.Text = "km/h";
+            gaugeLabel4.TextColor = System.Drawing.Color.White;
+            gaugeLabel4.TextFont = new System.Drawing.Font("Arial", 12F);
+            this.gaugeSpeed.Labels.Add(gaugeLabel4);
             this.gaugeSpeed.Location = new System.Drawing.Point(784, 21);
             this.gaugeSpeed.MaxValue = new decimal(new int[] {
             1000,
@@ -764,44 +764,44 @@
             0});
             this.gaugeSpeed.Size = new System.Drawing.Size(264, 260);
             this.gaugeSpeed.TabIndex = 14;
-            gaugeTickMarker7.BeginAngle = 140F;
-            gaugeTickMarker7.EndAngle = 400F;
-            gaugeTickMarker7.Height = 6F;
-            gaugeTickMarker7.IntervalAngle = 3.6F;
-            gaugeTickMarker7.markerColor = System.Drawing.Color.White;
-            gaugeTickMarker7.Name = "MinorTickMarker";
-            gaugeTickMarker7.OffsetX = new decimal(new int[] {
+            gaugeTickMarker3.BeginAngle = 140F;
+            gaugeTickMarker3.EndAngle = 400F;
+            gaugeTickMarker3.Height = 6F;
+            gaugeTickMarker3.IntervalAngle = 3.6F;
+            gaugeTickMarker3.markerColor = System.Drawing.Color.White;
+            gaugeTickMarker3.Name = "MinorTickMarker";
+            gaugeTickMarker3.OffsetX = new decimal(new int[] {
             0,
             0,
             0,
             0});
-            gaugeTickMarker7.OffsetY = new decimal(new int[] {
+            gaugeTickMarker3.OffsetY = new decimal(new int[] {
             0,
             0,
             0,
             0});
-            gaugeTickMarker7.Radius = 107F;
-            gaugeTickMarker7.Width = 2F;
-            gaugeTickMarker8.BeginAngle = 140F;
-            gaugeTickMarker8.EndAngle = 400F;
-            gaugeTickMarker8.Height = 8F;
-            gaugeTickMarker8.IntervalAngle = 18F;
-            gaugeTickMarker8.markerColor = System.Drawing.Color.White;
-            gaugeTickMarker8.Name = "MajorTickMarker";
-            gaugeTickMarker8.OffsetX = new decimal(new int[] {
+            gaugeTickMarker3.Radius = 107F;
+            gaugeTickMarker3.Width = 2F;
+            gaugeTickMarker4.BeginAngle = 140F;
+            gaugeTickMarker4.EndAngle = 400F;
+            gaugeTickMarker4.Height = 8F;
+            gaugeTickMarker4.IntervalAngle = 18F;
+            gaugeTickMarker4.markerColor = System.Drawing.Color.White;
+            gaugeTickMarker4.Name = "MajorTickMarker";
+            gaugeTickMarker4.OffsetX = new decimal(new int[] {
             0,
             0,
             0,
             0});
-            gaugeTickMarker8.OffsetY = new decimal(new int[] {
+            gaugeTickMarker4.OffsetY = new decimal(new int[] {
             0,
             0,
             0,
             0});
-            gaugeTickMarker8.Radius = 107F;
-            gaugeTickMarker8.Width = 3F;
-            this.gaugeSpeed.TickMarkers.Add(gaugeTickMarker7);
-            this.gaugeSpeed.TickMarkers.Add(gaugeTickMarker8);
+            gaugeTickMarker4.Radius = 107F;
+            gaugeTickMarker4.Width = 3F;
+            this.gaugeSpeed.TickMarkers.Add(gaugeTickMarker3);
+            this.gaugeSpeed.TickMarkers.Add(gaugeTickMarker4);
             this.gaugeSpeed.Value = new decimal(new int[] {
             0,
             0,
