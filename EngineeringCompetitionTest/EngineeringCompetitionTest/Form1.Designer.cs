@@ -678,7 +678,7 @@
             this.gaugeFrequency.NumberMarkerAngleEnd = 420F;
             this.gaugeFrequency.NumberMarkerAngleInterval = 30F;
             this.gaugeFrequency.NumberMarkerColor = System.Drawing.Color.LemonChiffon;
-            this.gaugeFrequency.NumberMarkerFont = new System.Drawing.Font("Tahoma", 10F);
+            this.gaugeFrequency.NumberMarkerFont = new System.Drawing.Font("Tahoma", 9F);
             this.gaugeFrequency.NumberMarkerHeight = new decimal(new int[] {
             12,
             0,
@@ -784,7 +784,7 @@
             0,
             0,
             0});
-            this.gaugeSpeed.NumberMarkerOffset = -15;
+            this.gaugeSpeed.NumberMarkerOffset = -16;
             this.gaugeSpeed.NumberMarkerValueBegin = new decimal(new int[] {
             0,
             0,
