@@ -60,14 +60,14 @@
             this.label8 = new System.Windows.Forms.Label();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
+            this.greenLamp = new EngineeringCompetitionTest.UserControlLamp();
+            this.RedLamp = new EngineeringCompetitionTest.UserControlLamp();
+            this.AmberLamp = new EngineeringCompetitionTest.UserControlLamp();
             this.button1 = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.numericUpDownSpeed = new System.Windows.Forms.NumericUpDown();
             this.numericUpDownRPM = new System.Windows.Forms.NumericUpDown();
-            this.greenLamp = new EngineeringCompetitionTest.UserControlLamp();
-            this.RedLamp = new EngineeringCompetitionTest.UserControlLamp();
-            this.AmberLamp = new EngineeringCompetitionTest.UserControlLamp();
             this.gaugeRPM = new GaugeControl.Gauge();
             this.gaugeVoltage = new GaugeControl.Gauge();
             this.gaugeFrequency = new GaugeControl.Gauge();
@@ -368,6 +368,39 @@
             this.groupBox5.TabStop = false;
             this.groupBox5.Text = "Gauges";
             // 
+            // greenLamp
+            // 
+            this.greenLamp.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.greenLamp.LampColor = System.Drawing.Color.Green;
+            this.greenLamp.Location = new System.Drawing.Point(44, 347);
+            this.greenLamp.Margin = new System.Windows.Forms.Padding(2);
+            this.greenLamp.Name = "greenLamp";
+            this.greenLamp.Size = new System.Drawing.Size(30, 30);
+            this.greenLamp.TabIndex = 21;
+            this.greenLamp.Value = true;
+            // 
+            // RedLamp
+            // 
+            this.RedLamp.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.RedLamp.LampColor = System.Drawing.Color.Red;
+            this.RedLamp.Location = new System.Drawing.Point(118, 347);
+            this.RedLamp.Margin = new System.Windows.Forms.Padding(2);
+            this.RedLamp.Name = "RedLamp";
+            this.RedLamp.Size = new System.Drawing.Size(30, 30);
+            this.RedLamp.TabIndex = 20;
+            this.RedLamp.Value = false;
+            // 
+            // AmberLamp
+            // 
+            this.AmberLamp.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.AmberLamp.LampColor = System.Drawing.Color.DarkOrange;
+            this.AmberLamp.Location = new System.Drawing.Point(81, 347);
+            this.AmberLamp.Margin = new System.Windows.Forms.Padding(2);
+            this.AmberLamp.Name = "AmberLamp";
+            this.AmberLamp.Size = new System.Drawing.Size(30, 30);
+            this.AmberLamp.TabIndex = 19;
+            this.AmberLamp.Value = false;
+            // 
             // button1
             // 
             this.button1.Anchor = System.Windows.Forms.AnchorStyles.Top;
@@ -433,39 +466,6 @@
             this.numericUpDownRPM.Size = new System.Drawing.Size(96, 22);
             this.numericUpDownRPM.TabIndex = 15;
             this.numericUpDownRPM.ValueChanged += new System.EventHandler(this.numericUpDownRPM_ValueChanged);
-            // 
-            // greenLamp
-            // 
-            this.greenLamp.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.greenLamp.LampColor = System.Drawing.Color.Green;
-            this.greenLamp.Location = new System.Drawing.Point(44, 347);
-            this.greenLamp.Margin = new System.Windows.Forms.Padding(2);
-            this.greenLamp.Name = "greenLamp";
-            this.greenLamp.Size = new System.Drawing.Size(30, 30);
-            this.greenLamp.TabIndex = 21;
-            this.greenLamp.Value = true;
-            // 
-            // RedLamp
-            // 
-            this.RedLamp.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.RedLamp.LampColor = System.Drawing.Color.Red;
-            this.RedLamp.Location = new System.Drawing.Point(118, 347);
-            this.RedLamp.Margin = new System.Windows.Forms.Padding(2);
-            this.RedLamp.Name = "RedLamp";
-            this.RedLamp.Size = new System.Drawing.Size(30, 30);
-            this.RedLamp.TabIndex = 20;
-            this.RedLamp.Value = false;
-            // 
-            // AmberLamp
-            // 
-            this.AmberLamp.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.AmberLamp.LampColor = System.Drawing.Color.DarkOrange;
-            this.AmberLamp.Location = new System.Drawing.Point(81, 347);
-            this.AmberLamp.Margin = new System.Windows.Forms.Padding(2);
-            this.AmberLamp.Name = "AmberLamp";
-            this.AmberLamp.Size = new System.Drawing.Size(30, 30);
-            this.AmberLamp.TabIndex = 19;
-            this.AmberLamp.Value = false;
             // 
             // gaugeRPM
             // 
@@ -879,8 +879,7 @@
             // 
             // GaugeSimulator
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.ClientSize = new System.Drawing.Size(1050, 743);
             this.Controls.Add(this.groupBox5);
             this.Controls.Add(this.label8);
