@@ -59,14 +59,14 @@
             this.label8 = new System.Windows.Forms.Label();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
-            this.greenLamp = new EngineeringCompetitionTest.UserControlLamp();
-            this.RedLamp = new EngineeringCompetitionTest.UserControlLamp();
-            this.AmberLamp = new EngineeringCompetitionTest.UserControlLamp();
             this.button1 = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.numericUpDownSpeed = new System.Windows.Forms.NumericUpDown();
             this.numericUpDownRPM = new System.Windows.Forms.NumericUpDown();
+            this.greenLamp = new EngineeringCompetitionTest.UserControlLamp();
+            this.RedLamp = new EngineeringCompetitionTest.UserControlLamp();
+            this.AmberLamp = new EngineeringCompetitionTest.UserControlLamp();
             this.gaugeRPM = new GaugeControl.Gauge();
             this.gaugeVoltage = new GaugeControl.Gauge();
             this.gaugeFrequency = new GaugeControl.Gauge();
@@ -89,10 +89,10 @@
             this.groupBox1.Controls.Add(this.groupBox3);
             this.groupBox1.Controls.Add(this.groupBox2);
             this.groupBox1.Location = new System.Drawing.Point(7, 10);
-            this.groupBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.groupBox1.Size = new System.Drawing.Size(1032, 96);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(2);
+            this.groupBox1.Size = new System.Drawing.Size(1032, 110);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "COM ports";
@@ -103,10 +103,10 @@
             this.groupBox4.Controls.Add(this.buttonOpenPSPPort);
             this.groupBox4.Controls.Add(this.buttonClosePSPPort);
             this.groupBox4.Location = new System.Drawing.Point(4, 14);
-            this.groupBox4.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox4.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.groupBox4.Size = new System.Drawing.Size(343, 75);
+            this.groupBox4.Padding = new System.Windows.Forms.Padding(2);
+            this.groupBox4.Size = new System.Drawing.Size(343, 92);
             this.groupBox4.TabIndex = 16;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "PSP port";
@@ -114,18 +114,18 @@
             // comboBoxPSPPortSelect
             // 
             this.comboBoxPSPPortSelect.FormattingEnabled = true;
-            this.comboBoxPSPPortSelect.Location = new System.Drawing.Point(91, 19);
-            this.comboBoxPSPPortSelect.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.comboBoxPSPPortSelect.Location = new System.Drawing.Point(97, 18);
+            this.comboBoxPSPPortSelect.Margin = new System.Windows.Forms.Padding(2);
             this.comboBoxPSPPortSelect.Name = "comboBoxPSPPortSelect";
-            this.comboBoxPSPPortSelect.Size = new System.Drawing.Size(92, 21);
+            this.comboBoxPSPPortSelect.Size = new System.Drawing.Size(92, 24);
             this.comboBoxPSPPortSelect.TabIndex = 2;
             // 
             // buttonOpenPSPPort
             // 
             this.buttonOpenPSPPort.Location = new System.Drawing.Point(3, 15);
-            this.buttonOpenPSPPort.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.buttonOpenPSPPort.Margin = new System.Windows.Forms.Padding(2);
             this.buttonOpenPSPPort.Name = "buttonOpenPSPPort";
-            this.buttonOpenPSPPort.Size = new System.Drawing.Size(84, 24);
+            this.buttonOpenPSPPort.Size = new System.Drawing.Size(90, 29);
             this.buttonOpenPSPPort.TabIndex = 3;
             this.buttonOpenPSPPort.Text = "Open";
             this.buttonOpenPSPPort.UseVisualStyleBackColor = true;
@@ -134,9 +134,9 @@
             // buttonClosePSPPort
             // 
             this.buttonClosePSPPort.Location = new System.Drawing.Point(3, 45);
-            this.buttonClosePSPPort.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.buttonClosePSPPort.Margin = new System.Windows.Forms.Padding(2);
             this.buttonClosePSPPort.Name = "buttonClosePSPPort";
-            this.buttonClosePSPPort.Size = new System.Drawing.Size(84, 24);
+            this.buttonClosePSPPort.Size = new System.Drawing.Size(90, 29);
             this.buttonClosePSPPort.TabIndex = 4;
             this.buttonClosePSPPort.Text = "Close";
             this.buttonClosePSPPort.UseVisualStyleBackColor = true;
@@ -148,20 +148,20 @@
             this.groupBox3.Controls.Add(this.comboBoxMSSIM2Port);
             this.groupBox3.Controls.Add(this.buttonOpenMSSIMPort);
             this.groupBox3.Location = new System.Drawing.Point(689, 14);
-            this.groupBox3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox3.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.groupBox3.Size = new System.Drawing.Size(339, 75);
+            this.groupBox3.Padding = new System.Windows.Forms.Padding(2);
+            this.groupBox3.Size = new System.Drawing.Size(339, 92);
             this.groupBox3.TabIndex = 16;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "MSSIM2 port";
             // 
             // buttonCloseMSSIMPort
             // 
-            this.buttonCloseMSSIMPort.Location = new System.Drawing.Point(4, 41);
-            this.buttonCloseMSSIMPort.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.buttonCloseMSSIMPort.Location = new System.Drawing.Point(4, 48);
+            this.buttonCloseMSSIMPort.Margin = new System.Windows.Forms.Padding(2);
             this.buttonCloseMSSIMPort.Name = "buttonCloseMSSIMPort";
-            this.buttonCloseMSSIMPort.Size = new System.Drawing.Size(84, 26);
+            this.buttonCloseMSSIMPort.Size = new System.Drawing.Size(90, 29);
             this.buttonCloseMSSIMPort.TabIndex = 7;
             this.buttonCloseMSSIMPort.Text = "Close";
             this.buttonCloseMSSIMPort.UseVisualStyleBackColor = true;
@@ -170,18 +170,18 @@
             // comboBoxMSSIM2Port
             // 
             this.comboBoxMSSIM2Port.FormattingEnabled = true;
-            this.comboBoxMSSIM2Port.Location = new System.Drawing.Point(93, 19);
-            this.comboBoxMSSIM2Port.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.comboBoxMSSIM2Port.Location = new System.Drawing.Point(98, 17);
+            this.comboBoxMSSIM2Port.Margin = new System.Windows.Forms.Padding(2);
             this.comboBoxMSSIM2Port.Name = "comboBoxMSSIM2Port";
-            this.comboBoxMSSIM2Port.Size = new System.Drawing.Size(92, 21);
+            this.comboBoxMSSIM2Port.Size = new System.Drawing.Size(92, 24);
             this.comboBoxMSSIM2Port.TabIndex = 5;
             // 
             // buttonOpenMSSIMPort
             // 
             this.buttonOpenMSSIMPort.Location = new System.Drawing.Point(4, 15);
-            this.buttonOpenMSSIMPort.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.buttonOpenMSSIMPort.Margin = new System.Windows.Forms.Padding(2);
             this.buttonOpenMSSIMPort.Name = "buttonOpenMSSIMPort";
-            this.buttonOpenMSSIMPort.Size = new System.Drawing.Size(84, 24);
+            this.buttonOpenMSSIMPort.Size = new System.Drawing.Size(90, 29);
             this.buttonOpenMSSIMPort.TabIndex = 6;
             this.buttonOpenMSSIMPort.Text = "Open";
             this.buttonOpenMSSIMPort.UseVisualStyleBackColor = true;
@@ -193,28 +193,28 @@
             this.groupBox2.Controls.Add(this.buttonRunScript);
             this.groupBox2.Controls.Add(this.buttonLoadScriptFile);
             this.groupBox2.Location = new System.Drawing.Point(351, 14);
-            this.groupBox2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox2.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.groupBox2.Size = new System.Drawing.Size(331, 75);
+            this.groupBox2.Padding = new System.Windows.Forms.Padding(2);
+            this.groupBox2.Size = new System.Drawing.Size(331, 92);
             this.groupBox2.TabIndex = 19;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Script";
             // 
             // textBoxFileName
             // 
-            this.textBoxFileName.Location = new System.Drawing.Point(48, 13);
-            this.textBoxFileName.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.textBoxFileName.Location = new System.Drawing.Point(14, 20);
+            this.textBoxFileName.Margin = new System.Windows.Forms.Padding(2);
             this.textBoxFileName.Name = "textBoxFileName";
-            this.textBoxFileName.Size = new System.Drawing.Size(182, 20);
+            this.textBoxFileName.Size = new System.Drawing.Size(216, 22);
             this.textBoxFileName.TabIndex = 17;
             // 
             // buttonRunScript
             // 
-            this.buttonRunScript.Location = new System.Drawing.Point(234, 40);
-            this.buttonRunScript.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.buttonRunScript.Location = new System.Drawing.Point(234, 48);
+            this.buttonRunScript.Margin = new System.Windows.Forms.Padding(2);
             this.buttonRunScript.Name = "buttonRunScript";
-            this.buttonRunScript.Size = new System.Drawing.Size(90, 27);
+            this.buttonRunScript.Size = new System.Drawing.Size(90, 29);
             this.buttonRunScript.TabIndex = 16;
             this.buttonRunScript.Text = "Run Script";
             this.buttonRunScript.UseVisualStyleBackColor = true;
@@ -222,8 +222,8 @@
             // 
             // buttonLoadScriptFile
             // 
-            this.buttonLoadScriptFile.Location = new System.Drawing.Point(234, 10);
-            this.buttonLoadScriptFile.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.buttonLoadScriptFile.Location = new System.Drawing.Point(234, 15);
+            this.buttonLoadScriptFile.Margin = new System.Windows.Forms.Padding(2);
             this.buttonLoadScriptFile.Name = "buttonLoadScriptFile";
             this.buttonLoadScriptFile.Size = new System.Drawing.Size(90, 29);
             this.buttonLoadScriptFile.TabIndex = 18;
@@ -237,7 +237,7 @@
             this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
             this.pictureBox1.Location = new System.Drawing.Point(321, 17);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(390, 98);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -248,10 +248,10 @@
             // 
             this.richTextBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.richTextBox1.Location = new System.Drawing.Point(4, 609);
-            this.richTextBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.richTextBox1.Location = new System.Drawing.Point(4, 623);
+            this.richTextBox1.Margin = new System.Windows.Forms.Padding(2);
             this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.Size = new System.Drawing.Size(1043, 111);
+            this.richTextBox1.Size = new System.Drawing.Size(1043, 118);
             this.richTextBox1.TabIndex = 4;
             this.richTextBox1.Text = "";
             // 
@@ -263,15 +263,15 @@
             0,
             0,
             131072});
-            this.numericUpDownVoltage.Location = new System.Drawing.Point(309, 454);
-            this.numericUpDownVoltage.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.numericUpDownVoltage.Location = new System.Drawing.Point(334, 454);
+            this.numericUpDownVoltage.Margin = new System.Windows.Forms.Padding(2);
             this.numericUpDownVoltage.Maximum = new decimal(new int[] {
             5,
             0,
             0,
             0});
             this.numericUpDownVoltage.Name = "numericUpDownVoltage";
-            this.numericUpDownVoltage.Size = new System.Drawing.Size(91, 20);
+            this.numericUpDownVoltage.Size = new System.Drawing.Size(91, 22);
             this.numericUpDownVoltage.TabIndex = 5;
             this.numericUpDownVoltage.ValueChanged += new System.EventHandler(this.numericUpDownVoltage_ValueChanged);
             // 
@@ -282,21 +282,21 @@
             this.label5.Location = new System.Drawing.Point(210, 448);
             this.label5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(86, 26);
+            this.label5.Size = new System.Drawing.Size(113, 32);
             this.label5.TabIndex = 9;
             this.label5.Text = "Voltage";
             // 
             // numericUpDownFrequency
             // 
-            this.numericUpDownFrequency.Location = new System.Drawing.Point(711, 454);
-            this.numericUpDownFrequency.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.numericUpDownFrequency.Location = new System.Drawing.Point(746, 454);
+            this.numericUpDownFrequency.Margin = new System.Windows.Forms.Padding(2);
             this.numericUpDownFrequency.Maximum = new decimal(new int[] {
             2100,
             0,
             0,
             0});
             this.numericUpDownFrequency.Name = "numericUpDownFrequency";
-            this.numericUpDownFrequency.Size = new System.Drawing.Size(90, 20);
+            this.numericUpDownFrequency.Size = new System.Drawing.Size(90, 22);
             this.numericUpDownFrequency.TabIndex = 11;
             this.numericUpDownFrequency.ValueChanged += new System.EventHandler(this.numericUpDownFrequency_ValueChanged);
             // 
@@ -307,7 +307,7 @@
             this.label7.Location = new System.Drawing.Point(593, 448);
             this.label7.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(114, 26);
+            this.label7.Size = new System.Drawing.Size(149, 32);
             this.label7.TabIndex = 13;
             this.label7.Text = "Frequency";
             // 
@@ -318,7 +318,7 @@
             this.label8.Location = new System.Drawing.Point(663, 328);
             this.label8.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(75, 26);
+            this.label8.Size = new System.Drawing.Size(98, 32);
             this.label8.TabIndex = 15;
             this.label8.Text = "Speed";
             // 
@@ -345,49 +345,19 @@
             this.groupBox5.Controls.Add(this.numericUpDownFrequency);
             this.groupBox5.Controls.Add(this.gaugeSpeed);
             this.groupBox5.Controls.Add(this.label5);
-            this.groupBox5.Location = new System.Drawing.Point(7, 110);
-            this.groupBox5.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox5.Location = new System.Drawing.Point(7, 124);
+            this.groupBox5.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox5.Name = "groupBox5";
-            this.groupBox5.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox5.Padding = new System.Windows.Forms.Padding(2);
             this.groupBox5.Size = new System.Drawing.Size(1032, 495);
             this.groupBox5.TabIndex = 16;
             this.groupBox5.TabStop = false;
             this.groupBox5.Text = "Gauges";
             // 
-            // greenLamp
-            // 
-            this.greenLamp.LampColor = System.Drawing.Color.Green;
-            this.greenLamp.Location = new System.Drawing.Point(44, 347);
-            this.greenLamp.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.greenLamp.Name = "greenLamp";
-            this.greenLamp.Size = new System.Drawing.Size(30, 30);
-            this.greenLamp.TabIndex = 21;
-            this.greenLamp.Value = true;
-            // 
-            // RedLamp
-            // 
-            this.RedLamp.LampColor = System.Drawing.Color.Red;
-            this.RedLamp.Location = new System.Drawing.Point(118, 347);
-            this.RedLamp.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.RedLamp.Name = "RedLamp";
-            this.RedLamp.Size = new System.Drawing.Size(30, 30);
-            this.RedLamp.TabIndex = 20;
-            this.RedLamp.Value = false;
-            // 
-            // AmberLamp
-            // 
-            this.AmberLamp.LampColor = System.Drawing.Color.DarkOrange;
-            this.AmberLamp.Location = new System.Drawing.Point(81, 347);
-            this.AmberLamp.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.AmberLamp.Name = "AmberLamp";
-            this.AmberLamp.Size = new System.Drawing.Size(30, 30);
-            this.AmberLamp.TabIndex = 19;
-            this.AmberLamp.Value = false;
-            // 
             // button1
             // 
             this.button1.Location = new System.Drawing.Point(5, 451);
-            this.button1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button1.Margin = new System.Windows.Forms.Padding(2);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(105, 33);
             this.button1.TabIndex = 5;
@@ -402,7 +372,7 @@
             this.label2.Location = new System.Drawing.Point(825, 311);
             this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(75, 26);
+            this.label2.Size = new System.Drawing.Size(98, 32);
             this.label2.TabIndex = 18;
             this.label2.Text = "Speed";
             // 
@@ -410,40 +380,70 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(186)));
-            this.label1.Location = new System.Drawing.Point(36, 311);
+            this.label1.Location = new System.Drawing.Point(16, 311);
             this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(61, 26);
+            this.label1.Size = new System.Drawing.Size(77, 32);
             this.label1.TabIndex = 17;
             this.label1.Text = "RPM";
             // 
             // numericUpDownSpeed
             // 
-            this.numericUpDownSpeed.Location = new System.Drawing.Point(907, 315);
-            this.numericUpDownSpeed.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.numericUpDownSpeed.Location = new System.Drawing.Point(927, 315);
+            this.numericUpDownSpeed.Margin = new System.Windows.Forms.Padding(2);
             this.numericUpDownSpeed.Maximum = new decimal(new int[] {
             210,
             0,
             0,
             0});
             this.numericUpDownSpeed.Name = "numericUpDownSpeed";
-            this.numericUpDownSpeed.Size = new System.Drawing.Size(90, 20);
+            this.numericUpDownSpeed.Size = new System.Drawing.Size(90, 22);
             this.numericUpDownSpeed.TabIndex = 16;
             this.numericUpDownSpeed.ValueChanged += new System.EventHandler(this.numericUpDownSpeed_ValueChanged);
             // 
             // numericUpDownRPM
             // 
             this.numericUpDownRPM.Location = new System.Drawing.Point(97, 315);
-            this.numericUpDownRPM.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.numericUpDownRPM.Margin = new System.Windows.Forms.Padding(2);
             this.numericUpDownRPM.Maximum = new decimal(new int[] {
             3500,
             0,
             0,
             0});
             this.numericUpDownRPM.Name = "numericUpDownRPM";
-            this.numericUpDownRPM.Size = new System.Drawing.Size(90, 20);
+            this.numericUpDownRPM.Size = new System.Drawing.Size(96, 22);
             this.numericUpDownRPM.TabIndex = 15;
             this.numericUpDownRPM.ValueChanged += new System.EventHandler(this.numericUpDownRPM_ValueChanged);
+            // 
+            // greenLamp
+            // 
+            this.greenLamp.LampColor = System.Drawing.Color.Green;
+            this.greenLamp.Location = new System.Drawing.Point(44, 347);
+            this.greenLamp.Margin = new System.Windows.Forms.Padding(2);
+            this.greenLamp.Name = "greenLamp";
+            this.greenLamp.Size = new System.Drawing.Size(30, 30);
+            this.greenLamp.TabIndex = 21;
+            this.greenLamp.Value = true;
+            // 
+            // RedLamp
+            // 
+            this.RedLamp.LampColor = System.Drawing.Color.Red;
+            this.RedLamp.Location = new System.Drawing.Point(118, 347);
+            this.RedLamp.Margin = new System.Windows.Forms.Padding(2);
+            this.RedLamp.Name = "RedLamp";
+            this.RedLamp.Size = new System.Drawing.Size(30, 30);
+            this.RedLamp.TabIndex = 20;
+            this.RedLamp.Value = false;
+            // 
+            // AmberLamp
+            // 
+            this.AmberLamp.LampColor = System.Drawing.Color.DarkOrange;
+            this.AmberLamp.Location = new System.Drawing.Point(81, 347);
+            this.AmberLamp.Margin = new System.Windows.Forms.Padding(2);
+            this.AmberLamp.Name = "AmberLamp";
+            this.AmberLamp.Size = new System.Drawing.Size(30, 30);
+            this.AmberLamp.TabIndex = 19;
+            this.AmberLamp.Value = false;
             // 
             // gaugeRPM
             // 
@@ -475,7 +475,7 @@
             gaugeLabel1.TextFont = new System.Drawing.Font("Arial", 12F);
             this.gaugeRPM.Labels.Add(gaugeLabel1);
             this.gaugeRPM.Location = new System.Drawing.Point(4, 50);
-            this.gaugeRPM.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.gaugeRPM.Margin = new System.Windows.Forms.Padding(2);
             this.gaugeRPM.MaxValue = new decimal(new int[] {
             1000,
             0,
@@ -556,7 +556,7 @@
             gaugeLabel2.TextFont = new System.Drawing.Font("Arial", 10F);
             this.gaugeVoltage.Labels.Add(gaugeLabel2);
             this.gaugeVoltage.Location = new System.Drawing.Point(215, 227);
-            this.gaugeVoltage.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.gaugeVoltage.Margin = new System.Windows.Forms.Padding(2);
             this.gaugeVoltage.MaxValue = new decimal(new int[] {
             1000,
             0,
@@ -657,7 +657,7 @@
             gaugeLabel3.TextFont = new System.Drawing.Font("Arial", 10F);
             this.gaugeFrequency.Labels.Add(gaugeLabel3);
             this.gaugeFrequency.Location = new System.Drawing.Point(598, 227);
-            this.gaugeFrequency.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.gaugeFrequency.Margin = new System.Windows.Forms.Padding(2);
             this.gaugeFrequency.MaxValue = new decimal(new int[] {
             1000,
             0,
@@ -757,7 +757,7 @@
             gaugeLabel4.TextFont = new System.Drawing.Font("Arial", 12F);
             this.gaugeSpeed.Labels.Add(gaugeLabel4);
             this.gaugeSpeed.Location = new System.Drawing.Point(778, 50);
-            this.gaugeSpeed.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.gaugeSpeed.Margin = new System.Windows.Forms.Padding(2);
             this.gaugeSpeed.MaxValue = new decimal(new int[] {
             1000,
             0,
@@ -849,14 +849,14 @@
             // 
             // GaugeSimulator
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1050, 722);
+            this.ClientSize = new System.Drawing.Size(1050, 743);
             this.Controls.Add(this.groupBox5);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.richTextBox1);
             this.Controls.Add(this.groupBox1);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "GaugeSimulator";
             this.Text = "GaugeSimulator";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
