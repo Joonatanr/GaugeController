@@ -585,5 +585,10 @@ namespace EngineeringCompetitionTest
         {
             DiscoverDevicesOnCom();
         }
+
+        private void gaugeSpeed_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

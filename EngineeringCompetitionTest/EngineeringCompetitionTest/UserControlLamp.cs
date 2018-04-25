@@ -42,7 +42,7 @@ namespace EngineeringCompetitionTest
             //Do I need to call this?
             base.OnPaint(e);
 
-            Rectangle rect = new Rectangle(new Point(1, 1), new Size(this.Height - 4, this.Width - 4));
+            Rectangle rect = new Rectangle(new Point(1, 1), new Size(this.Height - 5, this.Width - 5));
 
             Graphics gfx = e.Graphics;
             gfx.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
