@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(GaugeSimulator));
             GaugeControl.GaugeLabel gaugeLabel1 = new GaugeControl.GaugeLabel();
             GaugeControl.GaugeLabel gaugeLabel2 = new GaugeControl.GaugeLabel();
@@ -71,6 +72,7 @@
             this.gaugeVoltage = new GaugeControl.Gauge();
             this.gaugeFrequency = new GaugeControl.Gauge();
             this.gaugeSpeed = new GaugeControl.Gauge();
+            this.toolTipGauge = new System.Windows.Forms.ToolTip(this.components);
             this.groupBox1.SuspendLayout();
             this.groupBox4.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -85,6 +87,8 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox1.Controls.Add(this.groupBox4);
             this.groupBox1.Controls.Add(this.groupBox3);
             this.groupBox1.Controls.Add(this.groupBox2);
@@ -144,6 +148,8 @@
             // 
             // groupBox3
             // 
+            this.groupBox3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox3.Controls.Add(this.buttonCloseMSSIMPort);
             this.groupBox3.Controls.Add(this.comboBoxMSSIM2Port);
             this.groupBox3.Controls.Add(this.buttonOpenMSSIMPort);
@@ -233,6 +239,7 @@
             // 
             // pictureBox1
             // 
+            this.pictureBox1.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
             this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
@@ -257,6 +264,7 @@
             // 
             // numericUpDownVoltage
             // 
+            this.numericUpDownVoltage.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.numericUpDownVoltage.DecimalPlaces = 2;
             this.numericUpDownVoltage.Increment = new decimal(new int[] {
             1,
@@ -277,6 +285,7 @@
             // 
             // label5
             // 
+            this.label5.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(186)));
             this.label5.Location = new System.Drawing.Point(210, 448);
@@ -288,6 +297,7 @@
             // 
             // numericUpDownFrequency
             // 
+            this.numericUpDownFrequency.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.numericUpDownFrequency.Location = new System.Drawing.Point(746, 454);
             this.numericUpDownFrequency.Margin = new System.Windows.Forms.Padding(2);
             this.numericUpDownFrequency.Maximum = new decimal(new int[] {
@@ -302,6 +312,7 @@
             // 
             // label7
             // 
+            this.label7.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(186)));
             this.label7.Location = new System.Drawing.Point(593, 448);
@@ -328,6 +339,9 @@
             // 
             // groupBox5
             // 
+            this.groupBox5.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox5.Controls.Add(this.greenLamp);
             this.groupBox5.Controls.Add(this.RedLamp);
             this.groupBox5.Controls.Add(this.AmberLamp);
@@ -356,6 +370,7 @@
             // 
             // button1
             // 
+            this.button1.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.button1.Location = new System.Drawing.Point(5, 451);
             this.button1.Margin = new System.Windows.Forms.Padding(2);
             this.button1.Name = "button1";
@@ -367,6 +382,7 @@
             // 
             // label2
             // 
+            this.label2.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(186)));
             this.label2.Location = new System.Drawing.Point(825, 311);
@@ -378,6 +394,7 @@
             // 
             // label1
             // 
+            this.label1.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(186)));
             this.label1.Location = new System.Drawing.Point(16, 311);
@@ -389,6 +406,7 @@
             // 
             // numericUpDownSpeed
             // 
+            this.numericUpDownSpeed.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.numericUpDownSpeed.Location = new System.Drawing.Point(927, 315);
             this.numericUpDownSpeed.Margin = new System.Windows.Forms.Padding(2);
             this.numericUpDownSpeed.Maximum = new decimal(new int[] {
@@ -403,6 +421,7 @@
             // 
             // numericUpDownRPM
             // 
+            this.numericUpDownRPM.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.numericUpDownRPM.Location = new System.Drawing.Point(97, 315);
             this.numericUpDownRPM.Margin = new System.Windows.Forms.Padding(2);
             this.numericUpDownRPM.Maximum = new decimal(new int[] {
@@ -417,6 +436,7 @@
             // 
             // greenLamp
             // 
+            this.greenLamp.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.greenLamp.LampColor = System.Drawing.Color.Green;
             this.greenLamp.Location = new System.Drawing.Point(44, 347);
             this.greenLamp.Margin = new System.Windows.Forms.Padding(2);
@@ -427,6 +447,7 @@
             // 
             // RedLamp
             // 
+            this.RedLamp.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.RedLamp.LampColor = System.Drawing.Color.Red;
             this.RedLamp.Location = new System.Drawing.Point(118, 347);
             this.RedLamp.Margin = new System.Windows.Forms.Padding(2);
@@ -437,6 +458,7 @@
             // 
             // AmberLamp
             // 
+            this.AmberLamp.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.AmberLamp.LampColor = System.Drawing.Color.DarkOrange;
             this.AmberLamp.Location = new System.Drawing.Point(81, 347);
             this.AmberLamp.Margin = new System.Windows.Forms.Padding(2);
@@ -447,6 +469,7 @@
             // 
             // gaugeRPM
             // 
+            this.gaugeRPM.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.gaugeRPM.ArcColor = System.Drawing.Color.White;
             this.gaugeRPM.ArcEndAngle = 390F;
             this.gaugeRPM.ArcRadius = 110F;
@@ -520,6 +543,7 @@
             0});
             this.gaugeRPM.Size = new System.Drawing.Size(250, 250);
             this.gaugeRPM.TabIndex = 7;
+            this.toolTipGauge.SetToolTip(this.gaugeRPM, "RPM gauge (RPM)");
             this.gaugeRPM.Value = new decimal(new int[] {
             0,
             0,
@@ -528,6 +552,7 @@
             // 
             // gaugeVoltage
             // 
+            this.gaugeVoltage.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.gaugeVoltage.ArcColor = System.Drawing.Color.White;
             this.gaugeVoltage.ArcEndAngle = 430F;
             this.gaugeVoltage.ArcRadius = 89F;
@@ -620,6 +645,7 @@
             gaugeTickMarker1.Radius = 95F;
             gaugeTickMarker1.Width = 2F;
             this.gaugeVoltage.TickMarkers.Add(gaugeTickMarker1);
+            this.toolTipGauge.SetToolTip(this.gaugeVoltage, "Voltage gauge (V)");
             this.gaugeVoltage.Value = new decimal(new int[] {
             0,
             0,
@@ -629,6 +655,7 @@
             // 
             // gaugeFrequency
             // 
+            this.gaugeFrequency.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.gaugeFrequency.ArcColor = System.Drawing.Color.White;
             this.gaugeFrequency.ArcEndAngle = 420F;
             this.gaugeFrequency.ArcRadius = 90F;
@@ -721,6 +748,7 @@
             gaugeTickMarker2.Radius = 68F;
             gaugeTickMarker2.Width = 2F;
             this.gaugeFrequency.TickMarkers.Add(gaugeTickMarker2);
+            this.toolTipGauge.SetToolTip(this.gaugeFrequency, "Frequency gauge (Hz)");
             this.gaugeFrequency.Value = new decimal(new int[] {
             0,
             0,
@@ -729,6 +757,7 @@
             // 
             // gaugeSpeed
             // 
+            this.gaugeSpeed.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.gaugeSpeed.ArcColor = System.Drawing.Color.White;
             this.gaugeSpeed.ArcEndAngle = 400F;
             this.gaugeSpeed.ArcRadius = 110F;
@@ -840,6 +869,7 @@
             gaugeTickMarker4.Width = 3F;
             this.gaugeSpeed.TickMarkers.Add(gaugeTickMarker3);
             this.gaugeSpeed.TickMarkers.Add(gaugeTickMarker4);
+            this.toolTipGauge.SetToolTip(this.gaugeSpeed, "Speed gauge (km/h)");
             this.gaugeSpeed.Value = new decimal(new int[] {
             0,
             0,
@@ -857,6 +887,7 @@
             this.Controls.Add(this.richTextBox1);
             this.Controls.Add(this.groupBox1);
             this.Margin = new System.Windows.Forms.Padding(2);
+            this.MinimumSize = new System.Drawing.Size(1068, 788);
             this.Name = "GaugeSimulator";
             this.Text = "GaugeSimulator";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
@@ -915,6 +946,7 @@
         private UserControlLamp greenLamp;
         private UserControlLamp RedLamp;
         private UserControlLamp AmberLamp;
+        private System.Windows.Forms.ToolTip toolTipGauge;
     }
 }
 
